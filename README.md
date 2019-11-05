@@ -10,7 +10,7 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - zarządzanie zakupami i statusem zamówień
 - zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
 ### - strona z logowaniem / rejestracją:
-- możliwość utworzenia konta lub zalogowania się na sytniejące
+- możliwość utworzenia konta lub zalogowania się na istniejące
 - (???) mail aktywacyjny przy tworzeniu konta
 ### - strona główna
 - linki do logowania, koszyka i jeśli zalogowano na admina panelu administracyjnego
