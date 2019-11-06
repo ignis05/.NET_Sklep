@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "as-webforms-sklep", "as-webforms-sklep.csproj", "{753F88A9-3444-4F16-A17D-F6B77EC7CF8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "as-webforms-sklep", "Projekt_VS\as-webforms-sklep.csproj", "{753F88A9-3444-4F16-A17D-F6B77EC7CF8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
