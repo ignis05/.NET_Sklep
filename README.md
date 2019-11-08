@@ -2,7 +2,7 @@
 
 Sklep internetowy wykorzystaniem najnowszych technologii
 
-## <u>**_na 15 listopada_**</u>
+## <u>**_na 22 listopada_**</u>
 
 ## Podział stron (wstępna koncepcja):
 ### - panel administaracyjny:
