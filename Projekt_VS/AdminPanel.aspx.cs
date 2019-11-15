@@ -18,7 +18,7 @@ namespace as_webforms_sklep
             Debug.WriteLine("Starting");
             connect();
             tableToGridView("users", gvUsers);
-            tableToGridView("products", gvProducts);
+            tableToGridView("product_info", gvProducts);
             tableToGridView("orders", gvOrders);
         }
 
