@@ -209,6 +209,7 @@ ALTER TABLE `stock`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD KEY `access_level` (`access_level`);
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables

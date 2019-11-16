@@ -12,54 +12,16 @@ namespace as_webforms_sklep
 {
     public partial class WebForm1 : Page
     {
-        MySqlConnection conn = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Debug.WriteLine("Starting");
-            connect();
-            tableToGridView("users", gvUsers);
-            tableToGridView("product_info", gvProducts);
-            tableToGridView("orders", gvOrders);
-        }
+            gvUsers.DataSource = DatabaseHandler.selectTable("users");
+            gvUsers.DataBind();
 
-        void connect()
-        {
-            string myconnection =
-               "SERVER=inf16.tl.krakow.pl;" +
-               "DATABASE=gmikolajczyk;" +
-               "UID=gmikolajczyk;" +
-               "PASSWORD=gmikolajczyk;";
+            gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+            gvProducts.DataBind();
 
-            MySqlConnection connection = new MySqlConnection(myconnection);
-
-            try
-            {
-                connection.Open();
-                connection.Close();
-                System.Diagnostics.Debug.WriteLine("Connected");
-                conn = connection;
-                conn.Open();
-            }
-            catch (MySqlException ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
-        }
-
-        public int tableToGridView(string table, GridView gv)
-        {
-            if (conn == null) return -1;
-
-            var sda = new MySqlDataAdapter();
-            sda.SelectCommand = new MySqlCommand("SELECT * FROM " + table, conn);
-
-            var dt = new DataTable();
-            sda.Fill(dt);
-            gv.DataSource = dt;
-            gv.DataBind();
-
-
-            return 0;
+            gvOrders.DataSource = DatabaseHandler.selectTable("orders");
+            gvOrders.DataBind();
         }
     }
 }
