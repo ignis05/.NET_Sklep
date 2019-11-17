@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 17 Lis 2019, 18:02
+-- Czas generowania: 17 Lis 2019, 19:06
 -- Wersja serwera: 5.5.28
 -- Wersja PHP: 7.1.10
 
@@ -169,7 +169,7 @@ CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
   `username` varchar(16) COLLATE utf8_polish_ci NOT NULL,
   `password_hash` char(32) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
-  `access_level` tinyint(3) UNSIGNED NOT NULL
+  `access_level` tinyint(1) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
@@ -271,7 +271,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -282,6 +282,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `product_info`
   ADD CONSTRAINT `product_info_ibfk_1` FOREIGN KEY (`category`) REFERENCES `product_categories` (`id`);
+
+--
+-- Ograniczenia dla tabeli `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`access_level`) REFERENCES `access_levels` (`id`);
 
 --
 -- Ograniczenia dla tabeli `user_data`
