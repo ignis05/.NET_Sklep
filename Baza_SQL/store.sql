@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Czas generowania: 08 Lis 2019, 12:39
--- Wersja serwera: 10.1.37-MariaDB
--- Wersja PHP: 7.3.0
+-- Host: localhost
+-- Czas generowania: 17 Lis 2019, 14:10
+-- Wersja serwera: 5.5.28
+-- Wersja PHP: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `store`
+-- Baza danych: `tkantor`
 --
 
 -- --------------------------------------------------------
@@ -104,11 +104,30 @@ INSERT INTO `order_states` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `product_categories`
+--
+
+CREATE TABLE `product_categories` (
+  `id` tinyint(10) UNSIGNED NOT NULL,
+  `name` tinytext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `product_categories`
+--
+
+INSERT INTO `product_categories` (`id`, `name`) VALUES
+(1, 'Narzędzia');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `product_info`
 --
 
 CREATE TABLE `product_info` (
   `id` int(10) UNSIGNED NOT NULL,
+  `category` tinyint(3) UNSIGNED NOT NULL,
   `name` varchar(64) COLLATE utf8_polish_ci NOT NULL,
   `description` text COLLATE utf8_polish_ci NOT NULL,
   `price` decimal(65,2) UNSIGNED NOT NULL,
@@ -119,8 +138,8 @@ CREATE TABLE `product_info` (
 -- Zrzut danych tabeli `product_info`
 --
 
-INSERT INTO `product_info` (`id`, `name`, `description`, `price`, `supplier`) VALUES
-(1, 'Tester kabli', 'abc', '123.45', 'QWERTY');
+INSERT INTO `product_info` (`id`, `category`, `name`, `description`, `price`, `supplier`) VALUES
+(1, 1, 'Tester kabli', 'abc', '123.45', 'QWERTY');
 
 -- --------------------------------------------------------
 
@@ -160,18 +179,32 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password_hash`, `access_level`) VALUES
 (0, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `user_data`
+--
+
+CREATE TABLE `user_data` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(320) CHARACTER SET ascii NOT NULL,
+  `first_name` tinytext,
+  `last_name` tinytext,
+  `billing_address` tinytext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indeksy dla zrzutów tabel
 --
 
 --
--- Indeksy dla tabeli `access_levels`
+-- Indexes for table `access_levels`
 --
 ALTER TABLE `access_levels`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `orders`
+-- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
@@ -179,89 +212,76 @@ ALTER TABLE `orders`
   ADD KEY `state` (`state`);
 
 --
--- Indeksy dla tabeli `order_contents`
+-- Indexes for table `order_contents`
 --
 ALTER TABLE `order_contents`
   ADD KEY `order_id` (`order_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indeksy dla tabeli `order_states`
+-- Indexes for table `order_states`
 --
 ALTER TABLE `order_states`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `product_info`
+-- Indexes for table `product_categories`
 --
-ALTER TABLE `product_info`
+ALTER TABLE `product_categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `stock`
+-- Indexes for table `product_info`
+--
+ALTER TABLE `product_info`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category` (`category`);
+
+--
+-- Indexes for table `stock`
 --
 ALTER TABLE `stock`
   ADD UNIQUE KEY `product_id` (`product_id`);
 
 --
--- Indeksy dla tabeli `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
   ADD KEY `access_level` (`access_level`);
-  ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `user_data`
+--
+ALTER TABLE `user_data`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `orders`
+-- AUTO_INCREMENT dla tabeli `product_categories`
 --
-ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT dla tabeli `product_info`
---
-ALTER TABLE `product_info`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT dla tabeli `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `product_categories`
+  MODIFY `id` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ograniczenia dla zrzutów tabel
 --
 
 --
--- Ograniczenia dla tabeli `orders`
+-- Ograniczenia dla tabeli `product_info`
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`state`) REFERENCES `order_states` (`id`);
+ALTER TABLE `product_info`
+  ADD CONSTRAINT `product_info_ibfk_1` FOREIGN KEY (`category`) REFERENCES `product_categories` (`id`);
 
 --
--- Ograniczenia dla tabeli `order_contents`
+-- Ograniczenia dla tabeli `user_data`
 --
-ALTER TABLE `order_contents`
-  ADD CONSTRAINT `order_contents_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
-  ADD CONSTRAINT `order_contents_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product_info` (`id`);
-
---
--- Ograniczenia dla tabeli `stock`
---
-ALTER TABLE `stock`
-  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product_info` (`id`);
-
---
--- Ograniczenia dla tabeli `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`access_level`) REFERENCES `access_levels` (`id`);
+ALTER TABLE `user_data`
+  ADD CONSTRAINT `user_data_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
