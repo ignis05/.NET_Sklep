@@ -33,5 +33,15 @@ namespace as_webforms_sklep
                 gvOrders.DataBind();
             }
         }
+
+        protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            Debug.WriteLine("here");
+            if (e.CommandName == "DeleteUser")
+            {
+                int row = -1;
+                int.TryParse(e.CommandArgument as string, out row);
+            }
+        }
     }
 }
