@@ -21,11 +21,11 @@ namespace as_webforms_sklep
             string token = UserHandler.tryToLogIn(tbUsername.Text, tbPassword.Text);
             if(token == "fail")
             {
-                lTestToken.Text = "Nie udało się zalogować";
+                lMsg.Text = "Nieprawidłowy login lub hasło.";
             } else
             {
                 Session["usertoken"] = token;
-                lTestToken.Text = "Token: " + token;
+                Response.Redirect("MainForm.aspx");
             }
         }
     }

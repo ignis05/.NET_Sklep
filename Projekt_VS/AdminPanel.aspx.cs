@@ -14,7 +14,11 @@ namespace as_webforms_sklep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["usertoken"] == null || UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "ADMIN")
+            // Tak tylko dla sprawdzenia czy działa
+            if(Session["usertoken"] == null)
+            {
+                Response.Redirect("LoginForm.aspx");
+            } else if(UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "ADMIN")
             {
                 lTest.Text = "Nie jesteś adminem.";
             } else

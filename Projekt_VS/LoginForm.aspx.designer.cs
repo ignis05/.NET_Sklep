@@ -58,15 +58,6 @@ namespace as_webforms_sklep {
         protected global::System.Web.UI.WebControls.TextBox tbPassword;
         
         /// <summary>
-        /// lTestToken control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lTestToken;
-        
-        /// <summary>
         /// bLogIn control.
         /// </summary>
         /// <remarks>
@@ -76,12 +67,12 @@ namespace as_webforms_sklep {
         protected global::System.Web.UI.WebControls.Button bLogIn;
         
         /// <summary>
-        /// bGoToRegister control.
+        /// lMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bGoToRegister;
+        protected global::System.Web.UI.WebControls.Label lMsg;
     }
 }

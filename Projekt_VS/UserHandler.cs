@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 
 namespace as_webforms_sklep
 {
     public static class UserHandler
     {
         struct ServerSideSession {
-            public bool Success { get; set; }
-            public int UserId { get; set; }
+            public bool Success { get; }
+            public int UserId { get; }
             // Dane użytkownika teoretycznie powinny być szyfrowane(RODO itp.), ale nie wiem czy nam się chce. Można to tu zostawić i powiedzieć Koszale, że to coś robi.
-            public string EncryptionKey { get; set; }
+            public string EncryptionKey { get; }
+            public string Username { get; }
 
             public ServerSideSession(string username, string password)
             { 
@@ -25,11 +24,13 @@ namespace as_webforms_sklep
                     int id = int.Parse(queryResp.Rows[0]["id"].ToString());
                     UserId = id;
                     EncryptionKey = password;
+                    Username = username;
                     Success = true;
                 } else
                 {
                     UserId = -1;
                     EncryptionKey = null;
+                    Username = username;
                     Success = false;
                 }
             }
@@ -74,6 +75,14 @@ namespace as_webforms_sklep
             }
             else
                 return false;
+        }
+
+        public static string getUsername(string token)
+        {
+            if (sessions.ContainsKey(token))
+                return sessions[token].Username;
+            else
+                return "";
         }
 
         public static string getAccessLevel(string token)

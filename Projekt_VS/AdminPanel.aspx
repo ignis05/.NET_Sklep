@@ -8,6 +8,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="MainForm.aspx">Powrót do Main.</asp:LinkButton>
+        <br />
         <asp:Label ID="lTest" runat="server" ForeColor="Red"></asp:Label>
         <asp:GridView ID="gvUsers" runat="server">
         </asp:GridView>

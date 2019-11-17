@@ -38,19 +38,19 @@
                 </tr>
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label ID="lTestToken" runat="server" Text="TestToken"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style2">
                         <asp:Button ID="bLogIn" runat="server" Text="Zaloguj" OnClick="bLogIn_Click" />
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        <asp:Button ID="bGoToRegister" runat="server" Text="Rejestracja" />
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Label ID="lMsg" runat="server" ForeColor="Red"></asp:Label>
                     </td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style2"></td>
                 </tr>
             </table>
         </div>
