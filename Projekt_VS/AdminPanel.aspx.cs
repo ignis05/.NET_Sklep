@@ -14,14 +14,20 @@ namespace as_webforms_sklep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvUsers.DataSource = DatabaseHandler.selectTable("users");
-            gvUsers.DataBind();
+            if(Session["usertoken"] == null || UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "ADMIN")
+            {
+                lTest.Text = "Nie jesteś adminem.";
+            } else
+            {
+                gvUsers.DataSource = DatabaseHandler.selectTable("users");
+                gvUsers.DataBind();
 
-            gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
-            gvProducts.DataBind();
+                gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                gvProducts.DataBind();
 
-            gvOrders.DataSource = DatabaseHandler.selectTable("orders");
-            gvOrders.DataBind();
+                gvOrders.DataSource = DatabaseHandler.selectTable("orders");
+                gvOrders.DataBind();
+            }
         }
     }
 }

@@ -8,6 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Label ID="lTest" runat="server" ForeColor="Red"></asp:Label>
         <asp:GridView ID="gvUsers" runat="server">
         </asp:GridView>
         <asp:GridView ID="gvProducts" runat="server">
