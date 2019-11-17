@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace as_webforms_sklep
 {
-    public partial class LoginForm : System.Web.UI.Page
+    public partial class LoginForm : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +21,11 @@ namespace as_webforms_sklep
                 Session["usertoken"] = token;
                 Response.Redirect("MainForm.aspx");
             }
+        }
+
+        protected void bGoToRegister_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RegisterForm.aspx");
         }
     }
 }

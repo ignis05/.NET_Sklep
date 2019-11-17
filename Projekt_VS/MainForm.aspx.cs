@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace as_webforms_sklep
 {
-    public partial class MainForm : System.Web.UI.Page
+    public partial class MainForm : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -17,6 +12,16 @@ namespace as_webforms_sklep
                 Response.Redirect("LoginForm.aspx");
             } else
                 Label1.Text = "<p>Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b></p>";
+        }
+
+        protected void bLogOut_Click(object sender, EventArgs e)
+        {
+            if (Session["usertoken"] != null)
+            {
+                UserHandler.tryToLogOut(Session["usertoken"].ToString());
+                Session["usertoken"] = null;
+                Response.Redirect("MainForm.aspx");
+            }
         }
     }
 }

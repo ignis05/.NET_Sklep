@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 17 Lis 2019, 14:10
+-- Czas generowania: 17 Lis 2019, 18:02
 -- Wersja serwera: 5.5.28
 -- Wersja PHP: 7.1.10
 
@@ -266,6 +266,12 @@ ALTER TABLE `user_data`
 --
 ALTER TABLE `product_categories`
   MODIFY `id` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT dla tabeli `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ograniczenia dla zrzutów tabel

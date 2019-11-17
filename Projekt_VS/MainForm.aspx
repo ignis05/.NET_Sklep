@@ -18,7 +18,7 @@
     <form id="form1" runat="server">
         <div>
 
-            <table align="center" class="auto-style1">
+            <table class="auto-style1">
                 <tr>
                     <td class="auto-style2">
                         <asp:Label ID="Label1" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
@@ -27,6 +27,8 @@
                 <tr>
                     <td>
                         <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="AdminPanel.aspx">Do panelu admina.</asp:LinkButton>
+                        <br />
+                        <asp:Button ID="bLogOut" runat="server" OnClick="bLogOut_Click" Text="Wyloguj" CausesValidation="False" UseSubmitBehavior="False" />
                     </td>
                 </tr>
             </table>

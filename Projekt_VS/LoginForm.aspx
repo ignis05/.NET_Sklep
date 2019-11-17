@@ -52,6 +52,14 @@
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
+                <tr>
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Button ID="bGoToRegister" runat="server" Text="Rejestracja" OnClick="bGoToRegister_Click" />
+                    </td>
+                    <td class="auto-style2"></td>
+                </tr>
             </table>
         </div>
     </form>
