@@ -8,9 +8,9 @@ namespace as_webforms_sklep
     {
         private const string connString =
                "SERVER=inf16.tl.krakow.pl;" +
-               "DATABASE=gmikolajczyk;" +
-               "UID=gmikolajczyk;" +
-               "PASSWORD=gmikolajczyk;";
+               "DATABASE=tkantor;" +
+               "UID=tkantor;" +
+               "PASSWORD=tkantor;";
 
         private static MySqlConnection connect()
         {
@@ -19,9 +19,7 @@ namespace as_webforms_sklep
             try
             {
                 conn.Open();
-                conn.Close();
                 Debug.WriteLine("Connected to database.");
-                conn.Open();
                 return conn;
             }
             catch (MySqlException ex)
@@ -50,15 +48,33 @@ namespace as_webforms_sklep
             return selectQuery("SELECT * FROM " + tableName);
         }
 
-        // UPDATE / DELETE
-        public static int updateOrDeleteQuery(string query)
+        // Wszystkie modyfikacje danych chyba najlepiej robić transakcjami
+        public class Transaction
         {
-            var conn = connect();
-            var cmd = new MySqlCommand(query);
-            var result = cmd.ExecuteNonQuery();
-            conn.Close();
+            private MySqlConnection conn;
 
-            return result;
+            public Transaction()
+            {
+                conn = connect();
+                new MySqlCommand("BEGIN", conn).ExecuteNonQuery();
+            }
+
+            public int executeCommand(string cmd)
+            {
+                return new MySqlCommand(cmd, conn).ExecuteNonQuery();
+            }
+
+            public void commit()
+            {
+                new MySqlCommand("COMMIT", conn).ExecuteNonQuery();
+                conn.Close();
+            }
+
+            public void rollback()
+            {
+                new MySqlCommand("ROLLBACK", conn).ExecuteNonQuery();
+                conn.Close();
+            }
         }
     }
 }

@@ -77,6 +77,40 @@ namespace as_webforms_sklep
                 return false;
         }
 
+        public static bool tryToRegister(string username, string password, string email, string[] data)
+        {
+            int userAccessLevel = int.Parse(DatabaseHandler.selectQuery("SELECT id FROM access_levels WHERE name LIKE 'USER'").Rows[0]["id"].ToString());
+            string userCMD = "INSERT INTO users (username, password_hash, access_level) VALUES('{0}', '{1}', '{2}')";
+            string userDataCMD = "INSERT INTO user_data (user_id, email, first_name, last_name, billing_address) VALUES('{0}', '{1}', '{2}', '{3}', '{4}')";
+
+            var transaction = new DatabaseHandler.Transaction();
+            try
+            {
+                int userInsertSuccess = transaction.executeCommand(string.Format(userCMD, username, CalculateMD5Hash(password), userAccessLevel.ToString()));
+                if (userInsertSuccess == 1)
+                {
+                    transaction.commit();
+                    transaction = new DatabaseHandler.Transaction();
+                    int userID = int.Parse(DatabaseHandler.selectQuery("SELECT id FROM users WHERE username LIKE '" + username + "'").Rows[0]["id"].ToString());
+                    int dataInsertSuccess = transaction.executeCommand(string.Format(userDataCMD, userID.ToString(), email, data[0], data[1], data[2]));
+                    if (dataInsertSuccess == 1)
+                    {
+                        transaction.commit();
+                        return true;
+                    }
+                    else
+                        transaction.rollback();
+                }
+                else
+                    transaction.rollback();
+            } catch (Exception ex)
+            {
+                transaction.rollback();
+            }
+
+            return false;
+        }
+
         public static string getUsername(string token)
         {
             if (sessions.ContainsKey(token))
