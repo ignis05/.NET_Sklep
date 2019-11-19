@@ -18,10 +18,12 @@ namespace as_webforms_sklep
             if(Session["usertoken"] == null)
             {
                 Response.Redirect("LoginForm.aspx");
-            } else if(UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "ADMIN")
+            }
+            else if(UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "admin")
             {
                 lTest.Text = "Nie jesteś adminem.";
-            } else
+            }
+            else
             {
                 gvUsers.DataSource = DatabaseHandler.selectTable("users");
                 gvUsers.DataBind();

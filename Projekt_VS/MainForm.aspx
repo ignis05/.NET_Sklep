@@ -18,22 +18,28 @@
     <form id="form1" runat="server">
         <div>
 
-            <table class="auto-style1">
+            <table align="center" class="auto-style1">
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label ID="Label1" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
+                        <asp:Label ID="lLoggedIn" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
+                    &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="bLogout" runat="server" OnClick="bLogout_Click" Text="Wyloguj" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="AdminPanel.aspx">Do panelu admina.</asp:LinkButton>
-                        <br />
-                        <asp:Button ID="bLogOut" runat="server" OnClick="bLogOut_Click" Text="Wyloguj" CausesValidation="False" UseSubmitBehavior="False" />
+                        <asp:LinkButton ID="lbToAdmin" runat="server" PostBackUrl="AdminPanel.aspx" Visible="False">Do panelu admina.</asp:LinkButton>
+                        <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton>
                     </td>
                 </tr>
             </table>
 
         </div>
+        <p>
+            &nbsp;</p>
     </form>
 </body>
 </html>
