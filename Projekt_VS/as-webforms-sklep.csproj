@@ -107,6 +107,7 @@
     <Content Include="AdminPanel.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasketItem.cs" />
     <Compile Include="DatabaseHandler.cs" />
     <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
