@@ -1,4 +1,5 @@
-﻿using System;
+﻿using as_webforms_sklep.services;
+using System;
 using System.Web.UI;
 
 namespace as_webforms_sklep
@@ -22,6 +23,7 @@ namespace as_webforms_sklep
                 {
                     if (UserHandler.tryToRegister(tbUsername.Text, tbPassword.Text, tbEmail.Text, new string[3] { tbFirstName.Text, tbLastName.Text, tbAddress.Text}))
                     {
+                        EmailService.UserRegisterConfirmation(tbEmail.Text, tbUsername.Text);
                         lMsg.Text = "Pomyślnie zarejestrowano.";
                     } else
                     {
