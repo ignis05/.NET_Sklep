@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace as_webforms_sklep {
-    
-    
-    public partial class MainForm {
-        
+namespace as_webforms_sklep
+{
+
+
+    public partial class MainForm
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,32 +22,50 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
-        /// Label1 control.
+        /// lLoggedIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
+        protected global::System.Web.UI.WebControls.Label lLoggedIn;
+
         /// <summary>
-        /// LinkButton1 control.
+        /// bLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-        
+        protected global::System.Web.UI.WebControls.Button bLogout;
+
         /// <summary>
-        /// bLogOut control.
+        /// lbToAdmin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bLogOut;
+        protected global::System.Web.UI.WebControls.LinkButton lbToAdmin;
+
+        /// <summary>
+        /// lbToLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbToLogin;
+
+        /// <summary>
+        /// rProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rProducts;
     }
 }

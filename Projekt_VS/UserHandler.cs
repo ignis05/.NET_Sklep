@@ -62,7 +62,8 @@ namespace as_webforms_sklep
                 sessions[token] = session;
 
                 return token;
-            } else
+            }
+            else
                 return "fail";
         }
 

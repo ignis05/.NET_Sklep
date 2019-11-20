@@ -9,6 +9,7 @@
         .auto-style1 {
             width: 100%;
         }
+
         .auto-style2 {
             height: 23px;
         }
@@ -18,22 +19,38 @@
     <form id="form1" runat="server">
         <div>
 
-            <table class="auto-style1">
+            <table align="center" class="auto-style1">
                 <tr>
                     <td class="auto-style2">
-                        <asp:Label ID="Label1" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
+                        <asp:Label ID="lLoggedIn" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Button ID="bLogout" runat="server" OnClick="bLogout_Click" Text="Wyloguj" />
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="AdminPanel.aspx">Do panelu admina.</asp:LinkButton>
-                        <br />
-                        <asp:Button ID="bLogOut" runat="server" OnClick="bLogOut_Click" Text="Wyloguj" CausesValidation="False" UseSubmitBehavior="False" />
+                        <asp:LinkButton ID="lbToAdmin" runat="server" PostBackUrl="AdminPanel.aspx" Visible="False">Do panelu admina.</asp:LinkButton>
+                        <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton>
                     </td>
                 </tr>
             </table>
 
         </div>
+        <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_addProduct">
+            <ItemTemplate>
+                <div style="border: 2px solid black">
+                    <p><%# Eval("id") %></p>
+                    <p><%# Eval("name") %></p>
+                    <p><%# Eval("description") %></p>
+                    <p><%# Eval("price") %></p>
+                    <p><%# Eval("supplier") %></p>
+                    <asp:Button ID="bAddProduct" CommandName="addToBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Dodaj do koszyka" />
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
     </form>
 </body>
 </html>

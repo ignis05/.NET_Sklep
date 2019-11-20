@@ -67,10 +67,17 @@
                     <td>
                         <asp:TextBox ID="tbFirstName" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
                     <td>Nazwisko:</td>
                     <td>
                         <asp:TextBox ID="tbLastName" runat="server"></asp:TextBox>
                     </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Adres rozliczeniowy:</td>
