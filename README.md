@@ -6,21 +6,21 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 
 ## Podział stron (wstępna koncepcja):
 ### - panel administaracyjny:
-- dostępny po zalogowaniu na konto z uprawnieniami
-- zarządzanie zakupami i statusem zamówień
-- zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
+- [x] dostępny po zalogowaniu na konto z uprawnieniami
+- [ ] zarządzanie zakupami i statusem zamówień
+- [ ] zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
 ### - strona z logowaniem / rejestracją:
-- możliwość utworzenia konta lub zalogowania się na istniejące
-- (???) mail aktywacyjny przy tworzeniu konta
+- [x] możliwość utworzenia konta lub zalogowania się na istniejące
+- [ ] (???) mail aktywacyjny przy tworzeniu konta
 ### - strona główna
-- linki do logowania, koszyka i jeśli zalogowano na admina panelu administracyjnego
-- lista produktów z opisami
-- wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
-- <b><u>??? dodawanie do koszyka prosto z listy, czy osobna podstrona dla produktu ???</u></b>
+- [ ] linki do logowania, koszyka i jeśli zalogowano na admina panelu administracyjnego
+- [ ] lista produktów z opisami
+- [ ] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
+- [ ] <b><u>??? dodawanie do koszyka prosto z listy, czy osobna podstrona dla produktu ???</u></b>
 ### - koszyk
-- ma działać bez i z logowaniem (<u>??? chyba może być całkowicie client-sided ???</u>)
-- wyświetlenie dodanych do koszyka produktów, możliwośc usunięcia / zmiany ilości
-- zatwierdzenie zamówienia - powiadomienie email
+- [ ] ma działać bez i z logowaniem (<u>??? chyba może być całkowicie client-sided ???</u>)
+- [ ] wyświetlenie dodanych do koszyka produktów, możliwośc usunięcia / zmiany ilości
+- [ ] zatwierdzenie zamówienia - powiadomienie email
 s
 <hr>
 rejestracja i logowanie użytkowników (mail aktywacyjny?)
