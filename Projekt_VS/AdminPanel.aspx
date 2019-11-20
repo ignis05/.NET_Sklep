@@ -16,9 +16,14 @@
             <asp:BoundField DataField="id" HeaderText="ID"/>
             <asp:BoundField DataField="username" HeaderText="Username"/>
             <asp:BoundField DataField="access_level" HeaderText="Access Level"/>
-            <asp:TemplateField>
+            <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
                     <asp:LinkButton ID="btDeleteUser" Text="Delete" runat="server" CommandName="DeleteUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Update">
+                <ItemTemplate>
+                    <asp:LinkButton ID="btUpdateUser" runat="server" Text='<%# ProcessAccessLevel(Eval("access_level")) %>'  CommandName="UpdateUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

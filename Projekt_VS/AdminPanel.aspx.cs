@@ -38,7 +38,6 @@ namespace as_webforms_sklep
 
         protected void gvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            Debug.WriteLine("here");
             if (e.CommandName == "DeleteUser")
             {
                 Debug.WriteLine(e.CommandArgument.ToString());
@@ -46,6 +45,27 @@ namespace as_webforms_sklep
                 gvUsers.DataSource = DatabaseHandler.selectTable("users");
                 gvUsers.DataBind();
             }
+            else if (e.CommandName == "UpdateUser")
+            {
+                Debug.WriteLine(e.CommandArgument.ToString());
+            }
+        }
+
+
+        public static string ProcessAccessLevel(object myValue)
+        {
+            if (myValue == null)
+            {
+                return "error";
+            }
+            else
+            {
+                if (System.Convert.ToInt32(myValue) == 1)
+                    return "Demote";
+                else
+                    return "Promote";
+            }
+
         }
     }
 }
