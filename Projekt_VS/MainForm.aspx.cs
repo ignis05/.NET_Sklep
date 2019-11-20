@@ -44,16 +44,6 @@ namespace as_webforms_sklep
                 Debug.WriteLine("Create new basket");
                 Session["basket"] = new List<BasketItem>();
             }
-            else
-            {
-                Console.WriteLine("exists");
-                foreach (BasketItem o in (List<BasketItem>)Session["basket"])
-                {
-                    Console.WriteLine(o.productId);
-                    Console.WriteLine(o.amount);
-                    Console.WriteLine("=====");
-                }
-            }
         }
 
         protected void bLogout_Click(object sender, EventArgs e)
@@ -80,17 +70,32 @@ namespace as_webforms_sklep
                     basketList = (List<BasketItem>)Session["basket"];
                 }
 
+                int amountToAdd = 1;
+                TextBox tbAmount = (TextBox)e.Item.FindControl("tbAmount");
+                try
+                {
+                    amountToAdd = int.Parse(tbAmount.Text);
+                }
+                catch (FormatException)
+                {
+                    amountToAdd = 1;
+                }
+
                 BasketItem basketItem = basketList.Find(item => item.productId == (e.CommandArgument.ToString()));
 
                 if (basketItem == null)
                 {
-                    basketItem = new BasketItem(e.CommandArgument.ToString(), 1);
+                    basketItem = new BasketItem(e.CommandArgument.ToString(), amountToAdd);
                     basketList.Add(basketItem);
                 }
                 else
                 {
-                    basketItem.amount = basketItem.amount + 1;
+                    basketItem.amount = basketItem.amount + amountToAdd;
                 }
+
+                Debug.WriteLine("productId: " + basketItem.productId.ToString());
+                Debug.WriteLine("amount: " + basketItem.amount.ToString());
+                Debug.WriteLine("=====");
             }
         }
     }
