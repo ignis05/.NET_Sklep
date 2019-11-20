@@ -19,6 +19,9 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - [ ] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
 - [ ] <b><u>??? dodawanie do koszyka prosto z listy, czy osobna podstrona dla produktu ???</u></b>
 ### - koszyk
-- [ ] ma działać bez i z logowaniem (<u>??? chyba może być całkowicie client-sided ???</u>)
-- [ ] wyświetlenie dodanych do koszyka produktów, możliwośc usunięcia / zmiany ilości
+- [x] ma działać bez i z logowaniem (przechowywany w sesji)
+- [ ] wyświetlenie dodanych do koszyka produktów
+- [ ] możliwość usunięcia
+- [x] możliwość zmiany ilości (dodawanie)
+- [ ] możliwość zmiany ilości (usuwanie)
 - [ ] zatwierdzenie zamówienia - powiadomienie email
