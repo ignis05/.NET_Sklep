@@ -39,9 +39,10 @@ namespace as_webforms_sklep
             Debug.WriteLine("here");
             if (e.CommandName == "DeleteUser")
             {
-                int row = -1;
-                int.TryParse(e.CommandArgument as string, out row);
-                Debug.WriteLine(row.ToString());
+                Debug.WriteLine(e.CommandArgument.ToString());
+                DatabaseHandler.deleteUser(e.CommandArgument.ToString());
+                gvUsers.DataSource = DatabaseHandler.selectTable("users");
+                gvUsers.DataBind();
             }
         }
     }
