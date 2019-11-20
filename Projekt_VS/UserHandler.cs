@@ -157,5 +157,37 @@ namespace as_webforms_sklep
             else
                 return null;
         }
+
+        public static bool deleteUser(string id)
+        {
+            var transaction = new DatabaseHandler.Transaction();
+            int affectedRecords1 = transaction.executeCommand("DELETE FROM user_data WHERE user_id='" + id + "'");
+            int affectedRecords2 = transaction.executeCommand("DELETE FROM users WHERE id='" + id + "'");
+            // Obie operacja powinny usunąć nie mniej i nie więcej niż 1 rekord
+            if(affectedRecords1 == 1 && affectedRecords2 == 1)
+            {
+                transaction.commit();
+                return true;
+            } else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
+
+        public static bool updateAccess(string id, string access)
+        {
+            var transaction = new DatabaseHandler.Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE users SET access_level='" + access + "' WHERE id='" + id + "'");
+            if(affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            } else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
     }
 }

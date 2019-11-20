@@ -44,7 +44,12 @@ namespace as_webforms_sklep
             if (e.CommandName == "DeleteUser")
             {
                 Debug.WriteLine(e.CommandArgument.ToString());
-                DatabaseHandler.deleteUser(e.CommandArgument.ToString());
+
+                if (UserHandler.deleteUser(e.CommandArgument.ToString()))
+                    Debug.WriteLine("Deleted user with id: " + e.CommandArgument.ToString());
+                else
+                    Debug.WriteLine("Failed to delete user with id: " + e.CommandArgument.ToString());
+
                 gvUsers.DataSource = DatabaseHandler.selectTable("users");
                 gvUsers.DataBind();
             }
@@ -54,7 +59,12 @@ namespace as_webforms_sklep
                 string[] commandArgs = e.CommandArgument.ToString().Split(new char[] { ',' });
                 string id = commandArgs[0];
                 string access = commandArgs[1];
-                DatabaseHandler.updateAccess(id,access == "1" ? "0" : "1");
+
+                if(UserHandler.updateAccess(id,access == "1" ? "0" : "1"))
+                    Debug.WriteLine("Updated access for user with id: " + id + " to: " + access);
+                else
+                    Debug.WriteLine("Failed to update access for user with id: " + id + " to: " + access);
+
                 gvUsers.DataSource = DatabaseHandler.selectTable("users");
                 gvUsers.DataBind();
             }
@@ -80,7 +90,12 @@ namespace as_webforms_sklep
             if (e.CommandName == "UpdateState")
             {
                 Debug.WriteLine(e.CommandArgument.ToString());
-                DatabaseHandler.deleteUser(e.CommandArgument.ToString());
+
+                if (UserHandler.deleteUser(e.CommandArgument.ToString()))
+                    Debug.WriteLine("Deleted user with id: " + e.CommandArgument.ToString());
+                else
+                    Debug.WriteLine("Failed to delete user with id: " + e.CommandArgument.ToString());
+
                 gvUsers.DataSource = DatabaseHandler.selectTable("users");
                 gvUsers.DataBind();
             }
