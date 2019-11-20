@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -37,6 +38,22 @@ namespace as_webforms_sklep
                 rProducts.DataSource = DatabaseHandler.selectTable("product_info");
                 rProducts.DataBind();
             }
+
+            if (Session["basket"] == null)
+            {
+                Debug.WriteLine("Create new basket");
+                Session["basket"] = new List<BasketItem>();
+            }
+            else
+            {
+                Console.WriteLine("exists");
+                foreach (BasketItem o in (List<BasketItem>)Session["basket"])
+                {
+                    Console.WriteLine(o.productId);
+                    Console.WriteLine(o.amount);
+                    Console.WriteLine("=====");
+                }
+            }
         }
 
         protected void bLogout_Click(object sender, EventArgs e)
@@ -49,12 +66,31 @@ namespace as_webforms_sklep
             }
         }
 
-        protected void rProducts_addProduct(object source, RepeaterCommandEventArgs e)
+        protected void basketHandler(object source, RepeaterCommandEventArgs e)
         {
-            Debug.WriteLine("YEET");
             if (e.CommandName == "addToBasket")
             {
-                Debug.WriteLine(e.CommandArgument.ToString());
+                List<BasketItem> basketList;
+                if (Session["basket"] == null)
+                {
+                    basketList = new List<BasketItem>();
+                }
+                else
+                {
+                    basketList = (List<BasketItem>)Session["basket"];
+                }
+
+                BasketItem basketItem = basketList.Find(item => item.productId == (e.CommandArgument.ToString()));
+
+                if (basketItem == null)
+                {
+                    basketItem = new BasketItem(e.CommandArgument.ToString(), 1);
+                    basketList.Add(basketItem);
+                }
+                else
+                {
+                    basketItem.amount = basketItem.amount + 1;
+                }
             }
         }
     }

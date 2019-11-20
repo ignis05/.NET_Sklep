@@ -39,7 +39,7 @@
             </table>
 
         </div>
-        <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_addProduct">
+        <asp:Repeater ID="rProducts" runat="server" OnItemCommand="basketHandler">
             <ItemTemplate>
                 <div style="border: 2px solid black">
                     <p><%# Eval("id") %></p>
