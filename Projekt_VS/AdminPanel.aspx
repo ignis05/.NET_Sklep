@@ -18,7 +18,7 @@
             <asp:BoundField DataField="access_level" HeaderText="Access Level"/>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:Button ID="btDeleteUser" Text="Delete" runat="server" CommandName="DeleteUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
+                    <asp:LinkButton ID="btDeleteUser" Text="Delete" runat="server" CommandName="DeleteUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

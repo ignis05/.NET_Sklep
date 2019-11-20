@@ -41,6 +41,7 @@ namespace as_webforms_sklep
             {
                 int row = -1;
                 int.TryParse(e.CommandArgument as string, out row);
+                Debug.WriteLine(row.ToString());
             }
         }
     }
