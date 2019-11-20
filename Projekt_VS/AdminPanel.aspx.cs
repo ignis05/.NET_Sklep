@@ -57,7 +57,6 @@ namespace as_webforms_sklep
             }
         }
 
-
         public static string ProcessAccessLevel(object myValue)
         {
             if (myValue == null)
@@ -71,7 +70,36 @@ namespace as_webforms_sklep
                 else
                     return "Promote";
             }
-
         }
+
+        protected void gvOrders_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "UpdateState")
+            {
+                Debug.WriteLine(e.CommandArgument.ToString());
+                DatabaseHandler.deleteUser(e.CommandArgument.ToString());
+                gvUsers.DataSource = DatabaseHandler.selectTable("users");
+                gvUsers.DataBind();
+            }
+        }
+        protected void updateOrderState(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void Orders_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var ddl = e.Row.FindControl("orderStateList") as DropDownList;
+                if (ddl != null)
+                {
+                    ddl.DataSource = new List<string>() { "0", "1", "2", "3", };
+                    ddl.DataBind();
+                    ddl.SelectedValue = DataBinder.Eval(e.Row.DataItem, "state").ToString();
+                }
+            }
+        }
+
     }
 }

@@ -30,7 +30,17 @@
         </asp:GridView>
         <asp:GridView ID="gvProducts" runat="server">
         </asp:GridView>
-        <asp:GridView ID="gvOrders" runat="server">
+        <asp:GridView ID="gvOrders" AutoGenerateColumns="false" runat="server" OnRowCommand="gvOrders_RowCommand" DataKeyNames="id" OnRowDataBound="Orders_RowDataBound">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="ID"/>
+                <asp:BoundField DataField="user" HeaderText="User"/>
+                <asp:BoundField DataField="date" HeaderText="Date"/>
+                <asp:TemplateField HeaderText="State">
+                    <ItemTemplate>
+                        <asp:DropDownList ID="orderStateList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="updateOrderState"></asp:DropDownList>
+                    </ItemTemplate>
+                </asp:TemplateField>
+           </Columns>
         </asp:GridView>
     </form>
 </body>
