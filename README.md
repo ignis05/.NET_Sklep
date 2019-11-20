@@ -7,8 +7,9 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 ## Podział stron (wstępna koncepcja):
 ### - panel administaracyjny:
 - [x] dostępny po zalogowaniu na konto z uprawnieniami
-- [ ] zarządzanie zakupami i statusem zamówień
-- [ ] zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
+- [x] zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
+- [ ] zarządzanie produktami
+- [ ] zarządzanie statusem zamówień
 ### - strona z logowaniem / rejestracją:
 - [x] możliwość utworzenia konta lub zalogowania się na istniejące
 - [ ] (???) mail aktywacyjny przy tworzeniu konta
@@ -21,18 +22,3 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - [ ] ma działać bez i z logowaniem (<u>??? chyba może być całkowicie client-sided ???</u>)
 - [ ] wyświetlenie dodanych do koszyka produktów, możliwośc usunięcia / zmiany ilości
 - [ ] zatwierdzenie zamówienia - powiadomienie email
-s
-<hr>
-rejestracja i logowanie użytkowników (mail aktywacyjny?)
-
-2 typy użytkowników - zwykły i admin
-
-admin może:
-	- zarządzać zakupami (zmieniać status)
-	- zarządzać użytkownikami (dawać im admina)
-	- usuwać użytkowników
-	
-koszyk użytkownika
-
-(entity framework?)
-[baza ADO.NET (mniej punktów) LUB baza MySQL]
