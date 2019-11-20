@@ -86,5 +86,13 @@ namespace as_webforms_sklep
             cmd2.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static void updateAccess(string id, string access)
+        {
+            var conn = connect();
+            MySqlCommand cmd = new MySqlCommand("UPDATE users SET access_level='"+access+"' WHERE id='" + id + "'", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

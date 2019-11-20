@@ -23,7 +23,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Update">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btUpdateUser" runat="server" Text='<%# ProcessAccessLevel(Eval("access_level")) %>'  CommandName="UpdateUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
+                    <asp:LinkButton ID="btUpdateUser" runat="server" Text='<%# ProcessAccessLevel(Eval("access_level")) %>'  CommandName="UpdateUser" AllowPaging="True" CommandArgument='<%#Eval("id")+","+ Eval("access_level")%>'/>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

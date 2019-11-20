@@ -48,6 +48,12 @@ namespace as_webforms_sklep
             else if (e.CommandName == "UpdateUser")
             {
                 Debug.WriteLine(e.CommandArgument.ToString());
+                string[] commandArgs = e.CommandArgument.ToString().Split(new char[] { ',' });
+                string id = commandArgs[0];
+                string access = commandArgs[1];
+                DatabaseHandler.updateAccess(id,access == "1" ? "0" : "1");
+                gvUsers.DataSource = DatabaseHandler.selectTable("users");
+                gvUsers.DataBind();
             }
         }
 
@@ -60,7 +66,7 @@ namespace as_webforms_sklep
             }
             else
             {
-                if (System.Convert.ToInt32(myValue) == 1)
+                if (Convert.ToInt32(myValue) == 1)
                     return "Demote";
                 else
                     return "Promote";
