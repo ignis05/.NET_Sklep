@@ -9,6 +9,7 @@
         .auto-style1 {
             width: 100%;
         }
+
         .auto-style2 {
             height: 23px;
         }
@@ -22,7 +23,7 @@
                 <tr>
                     <td class="auto-style2">
                         <asp:Label ID="lLoggedIn" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
-                    &nbsp;</td>
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td>
@@ -38,8 +39,18 @@
             </table>
 
         </div>
-        <p>
-            &nbsp;</p>
+        <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_addProduct">
+            <ItemTemplate>
+                <div style="border: 2px solid black">
+                    <p><%# Eval("id") %></p>
+                    <p><%# Eval("name") %></p>
+                    <p><%# Eval("description") %></p>
+                    <p><%# Eval("price") %></p>
+                    <p><%# Eval("supplier") %></p>
+                    <asp:Button ID="bAddProduct" CommandName="addToBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Dodaj do koszyka" />
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
     </form>
 </body>
 </html>
