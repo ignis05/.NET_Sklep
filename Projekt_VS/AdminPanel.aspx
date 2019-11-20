@@ -37,7 +37,12 @@
                 <asp:BoundField DataField="date" HeaderText="Date"/>
                 <asp:TemplateField HeaderText="State">
                     <ItemTemplate>
-                        <asp:DropDownList ID="orderStateList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="updateOrderState"></asp:DropDownList>
+                        <asp:DropDownList ID="orderStateList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="updateOrderState"> </asp:DropDownList>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:HiddenField ID="hiddenID" runat="server" Value='<%# Eval("id") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
            </Columns>

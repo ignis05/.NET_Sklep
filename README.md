@@ -9,7 +9,7 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - [x] dostępny po zalogowaniu na konto z uprawnieniami
 - [x] zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
 - [ ] zarządzanie produktami
-- [ ] zarządzanie statusem zamówień
+- [x] zarządzanie statusem zamówień
 ### - strona z logowaniem / rejestracją:
 - [x] możliwość utworzenia konta lub zalogowania się na istniejące
 - [ ] (???) mail aktywacyjny przy tworzeniu konta

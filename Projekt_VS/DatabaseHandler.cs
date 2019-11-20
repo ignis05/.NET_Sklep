@@ -94,5 +94,13 @@ namespace as_webforms_sklep
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
+        public static void updateOrder(string id, string state)
+        {
+            var conn = connect();
+            MySqlCommand cmd = new MySqlCommand("UPDATE orders SET state='" + state + "' WHERE id='" + id + "'", conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

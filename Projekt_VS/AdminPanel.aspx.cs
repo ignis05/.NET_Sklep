@@ -15,24 +15,27 @@ namespace as_webforms_sklep
         protected void Page_Load(object sender, EventArgs e)
         {
             // Tak tylko dla sprawdzenia czy działa
-            if(Session["usertoken"] == null)
+            if (!Page.IsPostBack)
             {
-                Response.Redirect("LoginForm.aspx");
-            }
-            else if(UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "ADMIN")
-            {
-                lTest.Text = "Nie jesteś adminem.";
-            }
-            else
-            {
-                gvUsers.DataSource = DatabaseHandler.selectTable("users");
-                gvUsers.DataBind();
+                if (Session["usertoken"] == null)
+                {
+                    Response.Redirect("LoginForm.aspx");
+                }
+                else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "ADMIN")
+                {
+                    lTest.Text = "Nie jesteś adminem.";
+                }
+                else
+                {
+                    gvUsers.DataSource = DatabaseHandler.selectTable("users");
+                    gvUsers.DataBind();
 
-                gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
-                gvProducts.DataBind();
+                    gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                    gvProducts.DataBind();
 
-                gvOrders.DataSource = DatabaseHandler.selectTable("orders");
-                gvOrders.DataBind();
+                    gvOrders.DataSource = DatabaseHandler.selectTable("orders");
+                    gvOrders.DataBind();
+                }
             }
         }
 
@@ -84,7 +87,14 @@ namespace as_webforms_sklep
         }
         protected void updateOrderState(object sender, EventArgs e)
         {
-            
+            GridViewRow gvr = ((DropDownList)sender).NamingContainer as GridViewRow;
+            var list = gvr.FindControl("orderStateList") as DropDownList;
+            string val = list.SelectedValue;
+            HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
+            string id = hf1.Value;
+            DatabaseHandler.updateOrder(id,val);
+            gvUsers.DataSource = DatabaseHandler.selectTable("users");
+            gvUsers.DataBind();
         }
 
         protected void Orders_RowDataBound(object sender, GridViewRowEventArgs e)
