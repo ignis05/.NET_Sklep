@@ -76,5 +76,15 @@ namespace as_webforms_sklep
                 conn.Close();
             }
         }
+
+        public static void deleteUser(string id)
+        {
+            var conn = connect();
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM user_data WHERE user_id='" + id + "'", conn);
+            MySqlCommand cmd2 = new MySqlCommand("DELETE FROM users WHERE id='" + id + "'", conn);
+            cmd.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
