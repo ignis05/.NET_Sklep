@@ -127,6 +127,11 @@ namespace as_webforms_sklep
                     ddl.DataBind();
                     ddl.SelectedValue = DataBinder.Eval(e.Row.DataItem, "state").ToString();
                 }
+
+                string userId = e.Row.Cells[1].Text;
+                var usernameQuery = DatabaseHandler.selectQuery("SELECT username FROM users WHERE id LIKE '" + userId + "'");
+                if (usernameQuery.Rows.Count == 1)
+                    e.Row.Cells[1].Text = usernameQuery.Rows[0]["username"].ToString();
             }
         }
 
