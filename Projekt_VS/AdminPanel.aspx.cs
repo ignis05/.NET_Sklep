@@ -121,7 +121,9 @@ namespace as_webforms_sklep
                 var ddl = e.Row.FindControl("orderStateList") as DropDownList;
                 if (ddl != null)
                 {
-                    ddl.DataSource = new List<string>() { "0", "1", "2", "3", };
+                    ddl.DataSource = DatabaseHandler.selectTable("order_states");
+                    ddl.DataTextField = "name";
+                    ddl.DataValueField = "id";
                     ddl.DataBind();
                     ddl.SelectedValue = DataBinder.Eval(e.Row.DataItem, "state").ToString();
                 }
