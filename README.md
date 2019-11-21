@@ -22,7 +22,7 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - [ ] <u>??? obrazek produktu (link w bazie) ???</u>
 ### - koszyk
 - [x] ma działać bez i z logowaniem (przechowywany w sesji)
-- [ ] wyświetlenie dodanych do koszyka produktów
+- [x] wyświetlenie dodanych do koszyka produktów
 - [x] możliwość usunięcia
 - [x] możliwość zmiany ilości (dodawanie)
 - [x] możliwość zmiany ilości (usuwanie)
