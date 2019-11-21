@@ -6,6 +6,13 @@ using System.Text;
 
 namespace as_webforms_sklep
 {
+    public enum AccessLevel {
+        UNKNOWN = -1,
+        USER = 0,
+        ADMIN = 1,
+        ROOT = 2
+    }
+
     public static class UserHandler
     {
         struct ServerSideSession {
@@ -120,7 +127,7 @@ namespace as_webforms_sklep
                 return "";
         }
 
-        public static string getAccessLevel(string token)
+        public static AccessLevel getAccessLevel(string token)
         {
             if (sessions.ContainsKey(token))
             {
@@ -129,15 +136,11 @@ namespace as_webforms_sklep
                 if (levelIdQuery.Rows.Count == 1)
                 {
                     int levelId = int.Parse(levelIdQuery.Rows[0]["access_level"].ToString());
-                    var accessLevelQuery = DatabaseHandler.selectQuery("SELECT name FROM access_levels WHERE id LIKE '" + levelId + "'");
-                    if (accessLevelQuery.Rows.Count == 1)
-                    {
-                        return accessLevelQuery.Rows[0]["name"].ToString();
-                    }
+                    return (AccessLevel)levelId;
                 }
             }
 
-            return "ERROR";
+            return AccessLevel.UNKNOWN;
         }
 
         // Dla użytku serwerowego bez sesji, np. wysyłanie maila potwierdzającego rejestrację/zamówienie
@@ -156,6 +159,38 @@ namespace as_webforms_sklep
                 return getUserData(sessions[token].UserId);
             else
                 return null;
+        }
+
+        public static bool deleteUser(string id)
+        {
+            var transaction = new DatabaseHandler.Transaction();
+            int affectedRecords1 = transaction.executeCommand("DELETE FROM user_data WHERE user_id='" + id + "'");
+            int affectedRecords2 = transaction.executeCommand("DELETE FROM users WHERE id='" + id + "'");
+            // Obie operacja powinny usunąć nie mniej i nie więcej niż 1 rekord
+            if(affectedRecords1 == 1 && affectedRecords2 == 1)
+            {
+                transaction.commit();
+                return true;
+            } else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
+
+        public static bool updateAccess(string id, string access)
+        {
+            var transaction = new DatabaseHandler.Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE users SET access_level='" + access + "' WHERE id='" + id + "'");
+            if(affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            } else
+            {
+                transaction.rollback();
+                return false;
+            }
         }
     }
 }

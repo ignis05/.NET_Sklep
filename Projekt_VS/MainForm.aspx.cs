@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,7 +17,7 @@ namespace as_webforms_sklep
                 lbToLogin.Visible = true;
                 bLogout.Visible = false;
             }
-            else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) == "ADMIN")
+            else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ADMIN || UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ROOT)
             {
                 lLoggedIn.Text = "<p>Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b></p>";
                 lbToAdmin.Visible = true;
@@ -81,6 +80,7 @@ namespace as_webforms_sklep
 
         protected void basketHandler(object source, RepeaterCommandEventArgs e)
         {
+            Debug.WriteLine("YEET");
             if (e.CommandName == "addToBasket")
             {
                 List<BasketItem> basketList;

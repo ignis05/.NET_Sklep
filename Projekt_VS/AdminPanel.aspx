@@ -16,16 +16,36 @@
             <asp:BoundField DataField="id" HeaderText="ID"/>
             <asp:BoundField DataField="username" HeaderText="Username"/>
             <asp:BoundField DataField="access_level" HeaderText="Access Level"/>
-            <asp:TemplateField>
+            <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btDeleteUser" Text="Delete" runat="server" CommandName="DeleteUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
+                    <asp:LinkButton ID="btDeleteUser" Text='<%# Convert.ToInt32(Eval("id")) == 0 ? "" : "Delete" %>' runat="server" CommandName="DeleteUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Update">
+                <ItemTemplate>
+                    <asp:LinkButton ID="btUpdateUser" runat="server" Text='<%# ProcessAccessLevel(Eval("access_level")) %>'  CommandName="UpdateUser" AllowPaging="True" CommandArgument='<%#Eval("id")+","+ Eval("access_level")%>'/>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
         </asp:GridView>
         <asp:GridView ID="gvProducts" runat="server">
         </asp:GridView>
-        <asp:GridView ID="gvOrders" runat="server">
+        <asp:GridView ID="gvOrders" AutoGenerateColumns="false" runat="server" OnRowCommand="gvOrders_RowCommand" DataKeyNames="id" OnRowDataBound="Orders_RowDataBound">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="ID"/>
+                <asp:BoundField DataField="user" HeaderText="User"/>
+                <asp:BoundField DataField="date" HeaderText="Date"/>
+                <asp:TemplateField HeaderText="State">
+                    <ItemTemplate>
+                        <asp:DropDownList ID="orderStateList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="updateOrderState"> </asp:DropDownList>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:HiddenField ID="hiddenID" runat="server" Value='<%# Eval("id") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+           </Columns>
         </asp:GridView>
     </form>
 </body>

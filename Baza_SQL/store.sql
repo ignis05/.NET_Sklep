@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 17 Lis 2019, 19:06
+-- Czas generowania: 21 Lis 2019, 23:43
 -- Wersja serwera: 5.5.28
 -- Wersja PHP: 7.1.10
 
@@ -39,7 +39,8 @@ CREATE TABLE `access_levels` (
 
 INSERT INTO `access_levels` (`id`, `name`) VALUES
 (0, 'USER'),
-(1, 'ADMIN');
+(1, 'ADMIN'),
+(2, 'ROOT');
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user`, `date`, `state`) VALUES
-(1, 0, '2019-11-08', 3);
+(1, 1, '2019-11-08', 1),
+(2, 2, '2019-11-21', 0),
+(3, 0, '2019-11-22', 2),
+(4, 2, '2019-11-03', 3);
 
 -- --------------------------------------------------------
 
@@ -117,7 +121,8 @@ CREATE TABLE `product_categories` (
 --
 
 INSERT INTO `product_categories` (`id`, `name`) VALUES
-(1, 'Narzędzia');
+(1, 'Narzędzia'),
+(2, 'Inne');
 
 -- --------------------------------------------------------
 
@@ -129,6 +134,7 @@ CREATE TABLE `product_info` (
   `id` int(10) UNSIGNED NOT NULL,
   `category` tinyint(3) UNSIGNED NOT NULL,
   `name` varchar(64) COLLATE utf8_polish_ci NOT NULL,
+  `img_path` varchar(260) COLLATE utf8_polish_ci NOT NULL DEFAULT 'assets/img/placeholder.png',
   `description` text COLLATE utf8_polish_ci NOT NULL,
   `price` decimal(65,2) UNSIGNED NOT NULL,
   `supplier` varchar(64) COLLATE utf8_polish_ci NOT NULL
@@ -138,8 +144,9 @@ CREATE TABLE `product_info` (
 -- Zrzut danych tabeli `product_info`
 --
 
-INSERT INTO `product_info` (`id`, `category`, `name`, `description`, `price`, `supplier`) VALUES
-(1, 1, 'Tester kabli', 'abc', '123.45', 'QWERTY');
+INSERT INTO `product_info` (`id`, `category`, `name`, `img_path`, `description`, `price`, `supplier`) VALUES
+(1, 1, 'Tester kabli', 'assets/img/tester_kabli.jfif', 'abc', '123.45', 'QWERTY'),
+(2, 2, '2', 'assets/img/placeholder.png', '3', '4.00', '5');
 
 -- --------------------------------------------------------
 
@@ -177,7 +184,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password_hash`, `access_level`) VALUES
-(0, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
+(0, 'root', '63a9f0ea7bb98050796b649e85481845', 2),
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 1),
+(2, 'techtad', '9e38e8d688743e0d07d669a1fcbcd35b', 0);
 
 -- --------------------------------------------------------
 
@@ -192,6 +201,13 @@ CREATE TABLE `user_data` (
   `last_name` tinytext,
   `billing_address` tinytext
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Zrzut danych tabeli `user_data`
+--
+
+INSERT INTO `user_data` (`user_id`, `email`, `first_name`, `last_name`, `billing_address`) VALUES
+(2, 'technicaltad@gmail.com', 'Tad', 'Tech', '-');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -265,23 +281,49 @@ ALTER TABLE `user_data`
 -- AUTO_INCREMENT dla tabeli `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` tinyint(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT dla tabeli `product_info`
+--
+ALTER TABLE `product_info`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ograniczenia dla zrzutów tabel
 --
 
 --
+-- Ograniczenia dla tabeli `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`state`) REFERENCES `order_states` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ograniczenia dla tabeli `order_contents`
+--
+ALTER TABLE `order_contents`
+  ADD CONSTRAINT `order_contents_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `order_contents_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product_info` (`id`);
+
+--
 -- Ograniczenia dla tabeli `product_info`
 --
 ALTER TABLE `product_info`
   ADD CONSTRAINT `product_info_ibfk_1` FOREIGN KEY (`category`) REFERENCES `product_categories` (`id`);
+
+--
+-- Ograniczenia dla tabeli `stock`
+--
+ALTER TABLE `stock`
+  ADD CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product_info` (`id`);
 
 --
 -- Ograniczenia dla tabeli `users`

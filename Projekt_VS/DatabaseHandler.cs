@@ -8,9 +8,9 @@ namespace as_webforms_sklep
     {
         private const string connString =
                "SERVER=inf16.tl.krakow.pl;" +
-               "DATABASE=gmikolajczyk;" +
-               "UID=gmikolajczyk;" +
-               "PASSWORD=gmikolajczyk;";
+               "DATABASE=tkantor;" +
+               "UID=tkantor;" +
+               "PASSWORD=tkantor;";
 
         private static MySqlConnection connect()
         {
@@ -77,14 +77,19 @@ namespace as_webforms_sklep
             }
         }
 
-        public static void deleteUser(string id)
+        public static bool updateOrder(string id, string state)
         {
-            var conn = connect();
-            MySqlCommand cmd = new MySqlCommand("DELETE FROM user_data WHERE user_id='" + id + "'", conn);
-            MySqlCommand cmd2 = new MySqlCommand("DELETE FROM users WHERE id='" + id + "'", conn);
-            cmd.ExecuteNonQuery();
-            cmd2.ExecuteNonQuery();
-            conn.Close();
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE orders SET state='" + state + "' WHERE id='" + id + "'");
+            if(affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            } else
+            {
+                transaction.rollback();
+                return false;
+            }
         }
     }
 }
