@@ -32,6 +32,11 @@
                 </tr>
                 <tr>
                     <td>
+                        <asp:LinkButton ID="lbToBasket" runat="server" PostBackUrl="~/BasketForm.aspx">Koszyk</asp:LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <asp:LinkButton ID="lbToAdmin" runat="server" PostBackUrl="AdminPanel.aspx" Visible="False">Do panelu admina.</asp:LinkButton>
                         <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton>
                     </td>
