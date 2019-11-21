@@ -11,7 +11,7 @@ namespace as_webforms_sklep
 {
 
 
-    public partial class MainForm
+    public partial class BasketForm
     {
 
         /// <summary>
@@ -24,57 +24,30 @@ namespace as_webforms_sklep
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lLoggedIn control.
+        /// lTotalPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lLoggedIn;
+        protected global::System.Web.UI.WebControls.Label lTotalPrice;
 
         /// <summary>
-        /// bLogout control.
+        /// lbToMain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bLogout;
+        protected global::System.Web.UI.WebControls.LinkButton lbToMain;
 
         /// <summary>
-        /// lbToBasket control.
+        /// rBasket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbToBasket;
-
-        /// <summary>
-        /// lbToAdmin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbToAdmin;
-
-        /// <summary>
-        /// lbToLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbToLogin;
-
-        /// <summary>
-        /// rProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rProducts;
+        protected global::System.Web.UI.WebControls.Repeater rBasket;
     }
 }

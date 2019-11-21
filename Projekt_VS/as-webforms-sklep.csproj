@@ -107,6 +107,7 @@
     <Content Include="Web.config" />
     <Content Include="MainForm.aspx" />
     <Content Include="AdminPanel.aspx" />
+    <Content Include="BasketForm.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseHandler.cs" />
@@ -140,6 +141,13 @@
       <DependentUpon>RegisterForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserHandler.cs" />
+    <Compile Include="BasketForm.aspx.cs">
+      <DependentUpon>BasketForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasketForm.aspx.designer.cs">
+      <DependentUpon>BasketForm.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
