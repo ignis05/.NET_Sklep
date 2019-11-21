@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainForm.aspx.cs" Inherits="as_webforms_sklep.MainForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true"  CodeBehind="MainForm.aspx.cs" Inherits="as_webforms_sklep.MainForm" %>
 
 <!DOCTYPE html>
 
