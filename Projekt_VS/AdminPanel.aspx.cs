@@ -21,7 +21,7 @@ namespace as_webforms_sklep
                 {
                     Response.Redirect("LoginForm.aspx");
                 }
-                else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) != "ADMIN")
+                else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) != AccessLevel.ADMIN && UserHandler.getAccessLevel(Session["usertoken"].ToString()) != AccessLevel.ROOT)
                 {
                     lTest.Text = "Nie jesteś adminem.";
                 }
@@ -80,8 +80,10 @@ namespace as_webforms_sklep
             {
                 if (Convert.ToInt32(myValue) == 1)
                     return "Demote";
-                else
+                else if (Convert.ToInt32(myValue) == 0)
                     return "Promote";
+                else
+                    return "";
             }
         }
 

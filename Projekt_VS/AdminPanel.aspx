@@ -18,7 +18,7 @@
             <asp:BoundField DataField="access_level" HeaderText="Access Level"/>
             <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
-                    <asp:LinkButton ID="btDeleteUser" Text="Delete" runat="server" CommandName="DeleteUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
+                    <asp:LinkButton ID="btDeleteUser" Text='<%# Convert.ToInt32(Eval("id")) == 0 ? "" : "Delete" %>' runat="server" CommandName="DeleteUser" AllowPaging="True" CommandArgument='<%# Eval("id") %>'/>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Update">

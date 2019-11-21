@@ -17,7 +17,7 @@ namespace as_webforms_sklep
                 lbToLogin.Visible = true;
                 bLogout.Visible = false;
             }
-            else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) == "ADMIN")
+            else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ADMIN || UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ROOT)
             {
                 lLoggedIn.Text = "<p>Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b></p>";
                 lbToAdmin.Visible = true;
