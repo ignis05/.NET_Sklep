@@ -41,13 +41,14 @@
         </div>
         <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_addProduct">
             <ItemTemplate>
-                <div style="border: 2px solid black">
-                    <img src="<%# Eval("img_path") %>" style="width: 360px; height: 360px; border: 2px solid black;" />
+                <div class="product_div" style="border: 2px solid black">
+                    <img class="product_img" src="<%# Eval("img_path") %>" style="width: 360px; height: 360px; border: 2px solid black;" />
                     <p><%# Eval("id") %></p>
-                    <p><%# Eval("name") %></p>
-                    <p><%# Eval("description") %></p>
-                    <p><%# Eval("price") %></p>
-                    <p><%# Eval("supplier") %></p>
+                    <p class="product_category"><%# as_webforms_sklep.DatabaseHandler.selectQuery("SELECT name FROM product_categories WHERE id LIKE '" + Eval("category").ToString() + "'").Rows[0]["name"] %></p>
+                    <p class="product_name"><%# Eval("name") %></p>
+                    <p class="product_description"><%# Eval("description") %></p>
+                    <p class="product_price"><%# Eval("price") %></p>
+                    <p class="product_supplier"><%# Eval("supplier") %></p>
                     <asp:Button ID="bAddProduct" CommandName="addToBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Dodaj do koszyka" />
                 </div>
             </ItemTemplate>
