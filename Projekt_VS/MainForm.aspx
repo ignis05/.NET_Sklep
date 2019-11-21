@@ -42,6 +42,7 @@
         <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_addProduct">
             <ItemTemplate>
                 <div style="border: 2px solid black">
+                    <img src="<%# Eval("img_path") %>" style="width: 360px; height: 360px; border: 2px solid black;" />
                     <p><%# Eval("id") %></p>
                     <p><%# Eval("name") %></p>
                     <p><%# Eval("description") %></p>

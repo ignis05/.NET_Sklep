@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 21 Lis 2019, 22:57
+-- Czas generowania: 21 Lis 2019, 23:43
 -- Wersja serwera: 5.5.28
 -- Wersja PHP: 7.1.10
 
@@ -60,7 +60,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user`, `date`, `state`) VALUES
-(1, 1, '2019-11-08', 2);
+(1, 1, '2019-11-08', 1),
+(2, 2, '2019-11-21', 0),
+(3, 0, '2019-11-22', 2),
+(4, 2, '2019-11-03', 3);
 
 -- --------------------------------------------------------
 
@@ -131,6 +134,7 @@ CREATE TABLE `product_info` (
   `id` int(10) UNSIGNED NOT NULL,
   `category` tinyint(3) UNSIGNED NOT NULL,
   `name` varchar(64) COLLATE utf8_polish_ci NOT NULL,
+  `img_path` varchar(260) COLLATE utf8_polish_ci NOT NULL DEFAULT 'assets/img/placeholder.png',
   `description` text COLLATE utf8_polish_ci NOT NULL,
   `price` decimal(65,2) UNSIGNED NOT NULL,
   `supplier` varchar(64) COLLATE utf8_polish_ci NOT NULL
@@ -140,9 +144,9 @@ CREATE TABLE `product_info` (
 -- Zrzut danych tabeli `product_info`
 --
 
-INSERT INTO `product_info` (`id`, `category`, `name`, `description`, `price`, `supplier`) VALUES
-(1, 1, 'Tester kabli', 'abc', '123.45', 'QWERTY'),
-(2, 2, '2', '3', '4.00', '5');
+INSERT INTO `product_info` (`id`, `category`, `name`, `img_path`, `description`, `price`, `supplier`) VALUES
+(1, 1, 'Tester kabli', 'assets/img/tester_kabli.jfif', 'abc', '123.45', 'QWERTY'),
+(2, 2, '2', 'assets/img/placeholder.png', '3', '4.00', '5');
 
 -- --------------------------------------------------------
 
@@ -289,7 +293,7 @@ ALTER TABLE `product_info`
 -- AUTO_INCREMENT dla tabeli `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ograniczenia dla zrzutów tabel
