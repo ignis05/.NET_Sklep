@@ -27,6 +27,12 @@ namespace as_webforms_sklep
             calculateTotalPrice();
         }
 
+        protected void createProductList()
+        {
+            DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE id = ");
+
+        }
+
         protected void calculateTotalPrice()
         {
             List<BasketItem> basketList;
@@ -39,13 +45,13 @@ namespace as_webforms_sklep
                 basketList = (List<BasketItem>)Session["basket"];
             }
 
-            int totalPrice = 0;
+            double totalPrice = 0;
             foreach (BasketItem basketItem in basketList)
             {
-                totalPrice += basketItem.amount ; // * basketItem.price;
+                totalPrice += basketItem.amount * basketItem.price;
             }
 
-            lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString();
+            lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString("N2") + " zł";
         }
 
         protected void basketHandler(object source, RepeaterCommandEventArgs e)

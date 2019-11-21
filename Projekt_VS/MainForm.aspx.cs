@@ -105,11 +105,24 @@ namespace as_webforms_sklep
                     amountToAdd = 1;
                 }
 
+                double itemPrice = 0;
+                TextBox tbPrice = (TextBox)e.Item.FindControl("tbPrice");
+                try
+                {
+                    itemPrice = double.Parse(tbPrice.Text);
+                }
+                catch (FormatException)
+                {
+                    // "Literally can't go tits up" ~ /u/1R0NYMAN, 2019
+                    // https://bit.ly/35uq5xv
+                    Debug.WriteLine("/u/1R0NYMAN happened");
+                }
+
                 BasketItem basketItem = basketList.Find(item => item.productId == (e.CommandArgument.ToString()));
 
                 if (basketItem == null)
                 {
-                    basketItem = new BasketItem(e.CommandArgument.ToString(), amountToAdd);
+                    basketItem = new BasketItem(e.CommandArgument.ToString(), amountToAdd, itemPrice);
                     basketList.Add(basketItem);
                 }
                 else
