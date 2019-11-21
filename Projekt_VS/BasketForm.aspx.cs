@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
@@ -20,11 +21,36 @@ namespace as_webforms_sklep
 
             if (!IsPostBack)
             {
-                rBasket.DataSource = (List<BasketItem>)Session["basket"];
+                rBasket.DataSource = createProductList();
                 rBasket.DataBind();
             }
 
             calculateTotalPrice();
+        }
+
+        protected DataTable createProductList()
+        {
+            List<BasketItem> basketList;
+            if (Session["basket"] == null)
+            {
+                basketList = new List<BasketItem>();
+            }
+            else
+            {
+                basketList = (List<BasketItem>)Session["basket"];
+            }
+
+            DataTable dt = new DataTable();
+            foreach (BasketItem basketItem in basketList)
+            {
+                DataTable tempDt = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE id = " + basketItem.productId);
+                tempDt.Columns.Add("amount", typeof(int));
+                tempDt.Rows[0]["amount"] = basketItem.amount;
+
+                dt.Merge(tempDt);
+            }
+
+            return dt;
         }
 
         protected void calculateTotalPrice()
@@ -39,13 +65,13 @@ namespace as_webforms_sklep
                 basketList = (List<BasketItem>)Session["basket"];
             }
 
-            int totalPrice = 0;
+            double totalPrice = 0;
             foreach (BasketItem basketItem in basketList)
             {
-                totalPrice += basketItem.amount ; // * basketItem.price;
+                totalPrice += basketItem.amount * basketItem.price;
             }
 
-            lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString();
+            lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString("N2") + " zł";
         }
 
         protected void basketHandler(object source, RepeaterCommandEventArgs e)
@@ -96,7 +122,7 @@ namespace as_webforms_sklep
                 BasketItem basketItem = basketList.Find(item => item.productId == (e.CommandArgument.ToString()));
 
                 basketList.Remove(basketItem);
-                rBasket.DataSource = basketList;
+                rBasket.DataSource = createProductList();
                 rBasket.DataBind();
 
                 calculateTotalPrice();

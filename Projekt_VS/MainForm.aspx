@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MainForm.aspx.cs" Inherits="as_webforms_sklep.MainForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true"  CodeBehind="MainForm.aspx.cs" Inherits="as_webforms_sklep.MainForm" %>
 
 <!DOCTYPE html>
 
@@ -54,6 +54,7 @@
                     <p class="product_description"><%# Eval("description") %></p>
                     <p class="product_price"><%# Eval("price") %></p>
                     <p class="product_supplier"><%# Eval("supplier") %></p>
+                    <asp:TextBox ID="tbPrice" runat="server" type="hidden" value='<%# Eval("price") %>'></asp:TextBox>
                     <asp:TextBox ID="tbAmount" runat="server" type="number" value="1" min="1" step="1"></asp:TextBox>
                     <br />
                     <asp:Button ID="bAddProduct" CommandName="addToBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Dodaj do koszyka" />

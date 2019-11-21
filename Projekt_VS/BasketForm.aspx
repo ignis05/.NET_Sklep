@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BasketForm.aspx.cs" Inherits="as_webforms_sklep.BasketForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="BasketForm.aspx.cs" Inherits="as_webforms_sklep.BasketForm" %>
 
 <!DOCTYPE html>
 
@@ -34,11 +34,17 @@
         <asp:Repeater ID="rBasket" runat="server" OnItemCommand="basketHandler">
             <ItemTemplate>
                 <div style="border: 2px solid black">
-                    <p><%# Eval("productId") %></p>
+                    <img class="product_img" src="<%# Eval("img_path") %>" style="width: 360px; height: 360px; border: 2px solid black;" />
+                    <p><%# Eval("id") %></p>
+                    <p class="product_category"><%# as_webforms_sklep.DatabaseHandler.selectQuery("SELECT name FROM product_categories WHERE id LIKE '" + Eval("category").ToString() + "'").Rows[0]["name"] %></p>
+                    <p class="product_name"><%# Eval("name") %></p>
+                    <p class="product_description"><%# Eval("description") %></p>
+                    <p class="product_price"><%# Eval("price") %></p>
+                    <p class="product_supplier"><%# Eval("supplier") %></p>
                     <asp:TextBox ID="tbAmount" runat="server" type="number" value='<%# Eval("amount") %>' min="1" step="1"></asp:TextBox>
                     <br />
-                    <asp:Button ID="bChangeProduct" CommandName="changeInBasket" CommandArgument='<%# Eval("productId") %>' runat="server" Text="Zmień ilość" />
-                    <asp:Button ID="bRemoveProduct" CommandName="removeFromBasket" CommandArgument='<%# Eval("productId") %>' runat="server" Text="Usuń koszyka" />
+                    <asp:Button ID="bChangeProduct" CommandName="changeInBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Zmień ilość" />
+                    <asp:Button ID="bRemoveProduct" CommandName="removeFromBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Usuń z koszyka" />
                 </div>
             </ItemTemplate>
         </asp:Repeater>
