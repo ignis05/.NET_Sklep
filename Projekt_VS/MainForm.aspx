@@ -39,7 +39,7 @@
             </table>
 
         </div>
-        <asp:Repeater ID="rProducts" runat="server" OnItemCommand="basketHandler">
+        <asp:Repeater ID="rProducts" runat="server" OnItemCommand="rProducts_addProduct">
             <ItemTemplate>
                 <div style="border: 2px solid black">
                     <p><%# Eval("id") %></p>
@@ -47,8 +47,6 @@
                     <p><%# Eval("description") %></p>
                     <p><%# Eval("price") %></p>
                     <p><%# Eval("supplier") %></p>
-                    <asp:TextBox ID="tbAmount" runat="server" type="number" value="1" min="1" step="1"></asp:TextBox>
-                    <br />
                     <asp:Button ID="bAddProduct" CommandName="addToBasket" CommandArgument='<%# Eval("id") %>' runat="server" Text="Dodaj do koszyka" />
                 </div>
             </ItemTemplate>

@@ -14,16 +14,11 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - [x] możliwość utworzenia konta lub zalogowania się na istniejące
 - [ ] (???) mail aktywacyjny przy tworzeniu konta
 ### - strona główna
-- [x] linki do logowania i jeśli zalogowano na admina panelu administracyjnego
-- [ ] link do koszyka
+- [ ] linki do logowania, koszyka i jeśli zalogowano na admina panelu administracyjnego
 - [ ] lista produktów z opisami
 - [ ] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
-- [x] dodawanie do koszyka prosto z listy
-- [ ] <u>??? obrazek produktu (link w bazie) ???</u>
+- [ ] <b><u>??? dodawanie do koszyka prosto z listy, czy osobna podstrona dla produktu ???</u></b>
 ### - koszyk
-- [x] ma działać bez i z logowaniem (przechowywany w sesji)
-- [ ] wyświetlenie dodanych do koszyka produktów
-- [ ] możliwość usunięcia
-- [x] możliwość zmiany ilości (dodawanie)
-- [ ] możliwość zmiany ilości (usuwanie)
+- [ ] ma działać bez i z logowaniem (<u>??? chyba może być całkowicie client-sided ???</u>)
+- [ ] wyświetlenie dodanych do koszyka produktów, możliwośc usunięcia / zmiany ilości
 - [ ] zatwierdzenie zamówienia - powiadomienie email
