@@ -89,18 +89,7 @@ namespace as_webforms_sklep
 
         protected void gvOrders_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "UpdateState")
-            {
-                Debug.WriteLine(e.CommandArgument.ToString());
 
-                if (UserHandler.deleteUser(e.CommandArgument.ToString()))
-                    Debug.WriteLine("Deleted user with id: " + e.CommandArgument.ToString());
-                else
-                    Debug.WriteLine("Failed to delete user with id: " + e.CommandArgument.ToString());
-
-                gvUsers.DataSource = DatabaseHandler.selectTable("users");
-                gvUsers.DataBind();
-            }
         }
         protected void updateOrderState(object sender, EventArgs e)
         {
@@ -110,8 +99,8 @@ namespace as_webforms_sklep
             HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
             string id = hf1.Value;
             DatabaseHandler.updateOrder(id,val);
-            gvUsers.DataSource = DatabaseHandler.selectTable("users");
-            gvUsers.DataBind();
+            gvOrders.DataSource = DatabaseHandler.selectTable("orders");
+            gvOrders.DataBind();
         }
 
         protected void Orders_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -133,6 +122,51 @@ namespace as_webforms_sklep
                 if (usernameQuery.Rows.Count == 1)
                     e.Row.Cells[1].Text = usernameQuery.Rows[0]["username"].ToString();
             }
+        }
+
+        // products
+
+        protected void gvProducts_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+        }
+        protected void updateProductCat(object sender, EventArgs e)
+        {
+            GridViewRow gvr = ((DropDownList)sender).NamingContainer as GridViewRow;
+            var list = gvr.FindControl("productsCatList") as DropDownList;
+            string val = list.SelectedValue;
+            HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
+            string id = hf1.Value;
+            DatabaseHandler.updateProductCategory(id, val);
+            gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+            gvProducts.DataBind();
+        }
+
+        protected void Products_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var ddl = e.Row.FindControl("productsCatList") as DropDownList;
+                if (ddl != null)
+                {
+                    ddl.DataSource = DatabaseHandler.selectTable("product_categories");
+                    ddl.DataTextField = "name";
+                    ddl.DataValueField = "id";
+                    ddl.DataBind();
+                    ddl.SelectedValue = DataBinder.Eval(e.Row.DataItem, "category").ToString();
+                }
+            }
+        }
+
+        protected void tbProduct_Update(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            GridViewRow gvr = textBox.NamingContainer as GridViewRow;
+            HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
+            string id = hf1.Value;
+            string val = textBox.Text;
+            // remove 9 first chars from id to recognize column name
+            string column = textBox.ID.Substring(9, textBox.ID.Length - 9).ToLower();
+            DatabaseHandler.updateProductCol(id, column, val);
         }
 
     }

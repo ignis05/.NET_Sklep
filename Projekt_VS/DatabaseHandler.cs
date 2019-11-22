@@ -91,5 +91,37 @@ namespace as_webforms_sklep
                 return false;
             }
         }
+
+        public static bool updateProductCategory(string id, string category)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE product_info SET category='" + category + "' WHERE id='" + id + "'");
+            if (affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            }
+            else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
+
+        public static bool updateProductCol(string id, string column, string value)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE product_info SET "+column+"='"+value+"' WHERE id='" + id + "'");
+            if (affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            }
+            else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
     }
 }
