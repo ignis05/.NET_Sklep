@@ -36,10 +36,30 @@
                         <asp:HiddenField ID="hiddenID" runat="server" Value='<%# Eval("id") %>' />
                     </ItemTemplate>
                 </asp:TemplateField>
-               <asp:TemplateField>
+               <asp:TemplateField HeaderText="Category">
                 <ItemTemplate>
                         <asp:DropDownList ID="productsCatList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="updateProductCat"> </asp:DropDownList>
                     </ItemTemplate>
+            </asp:TemplateField>
+               <asp:TemplateField HeaderText="Name">
+                <ItemTemplate>
+                    <asp:TextBox runat="server" ID="tbProductName" Text='<%#Eval("name") %>'></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+               <asp:TemplateField HeaderText="Description">
+                <ItemTemplate>
+                    <asp:TextBox runat="server" ID="tbProductDesc" Text='<%#Eval("description") %>'></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+               <asp:TemplateField HeaderText="Price">
+                <ItemTemplate>
+                    <asp:TextBox runat="server" ID="tbProductPrice" Text='<%#Eval("price") %>'></asp:TextBox>
+                </ItemTemplate>
+            </asp:TemplateField>
+               <asp:TemplateField HeaderText="Supplier">
+                <ItemTemplate>
+                    <asp:TextBox runat="server" ID="tbProductSupp" Text='<%#Eval("supplier") %>'></asp:TextBox>
+                </ItemTemplate>
             </asp:TemplateField>
            </Columns>
         </asp:GridView>
