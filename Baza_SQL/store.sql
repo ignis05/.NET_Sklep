@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 21 Lis 2019, 23:43
+-- Czas generowania: 22 Lis 2019, 21:38
 -- Wersja serwera: 5.5.28
 -- Wersja PHP: 7.1.10
 
@@ -60,7 +60,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user`, `date`, `state`) VALUES
-(1, 1, '2019-11-08', 1),
+(1, 1, '2019-11-08', 2),
 (2, 2, '2019-11-21', 0),
 (3, 0, '2019-11-22', 2),
 (4, 2, '2019-11-03', 3);
@@ -145,8 +145,8 @@ CREATE TABLE `product_info` (
 --
 
 INSERT INTO `product_info` (`id`, `category`, `name`, `img_path`, `description`, `price`, `supplier`) VALUES
-(1, 1, 'Tester kabli', 'assets/img/tester_kabli.jfif', 'abc', '123.45', 'QWERTY'),
-(2, 2, '2', 'assets/img/placeholder.png', '3', '4.00', '5');
+(1, 1, 'Tester kabli', 'assets/img/tester_kabli.jfif', 'abcde', '123.45', 'QWERTY'),
+(2, 2, '22', 'assets/img/placeholder.png', '21376', '4.05', '5');
 
 -- --------------------------------------------------------
 
@@ -199,15 +199,16 @@ CREATE TABLE `user_data` (
   `email` varchar(320) CHARACTER SET ascii NOT NULL,
   `first_name` tinytext,
   `last_name` tinytext,
-  `billing_address` tinytext
+  `billing_address` tinytext,
+  `verified` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `user_data`
 --
 
-INSERT INTO `user_data` (`user_id`, `email`, `first_name`, `last_name`, `billing_address`) VALUES
-(2, 'technicaltad@gmail.com', 'Tad', 'Tech', '-');
+INSERT INTO `user_data` (`user_id`, `email`, `first_name`, `last_name`, `billing_address`, `verified`) VALUES
+(2, 'technicaltad@gmail.com', 'Tad', 'Tech', '-', b'0');
 
 --
 -- Indeksy dla zrzutów tabel
