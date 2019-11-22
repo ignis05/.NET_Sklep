@@ -28,7 +28,20 @@
             </asp:TemplateField>
         </Columns>
         </asp:GridView>
-        <asp:GridView ID="gvProducts" runat="server">
+        <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="false" OnRowCommand="gvProducts_RowCommand" DataKeyNames="id" OnRowDataBound="Products_RowDataBound">
+           <Columns>
+               <asp:BoundField DataField="id" HeaderText="ID"/>
+               <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:HiddenField ID="hiddenID" runat="server" Value='<%# Eval("id") %>' />
+                    </ItemTemplate>
+                </asp:TemplateField>
+               <asp:TemplateField>
+                <ItemTemplate>
+                        <asp:DropDownList ID="productsCatList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="updateProductCat"> </asp:DropDownList>
+                    </ItemTemplate>
+            </asp:TemplateField>
+           </Columns>
         </asp:GridView>
         <asp:GridView ID="gvOrders" AutoGenerateColumns="false" runat="server" OnRowCommand="gvOrders_RowCommand" DataKeyNames="id" OnRowDataBound="Orders_RowDataBound">
             <Columns>
