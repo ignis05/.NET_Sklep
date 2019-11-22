@@ -1,6 +1,9 @@
-﻿using System;
+﻿using as_webforms_sklep.services;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -113,6 +116,7 @@ namespace as_webforms_sklep
                     transaction.rollback();
             } catch (Exception ex)
             {
+                var exeption = ex;
                 transaction.rollback();
             }
 

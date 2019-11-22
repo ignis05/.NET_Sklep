@@ -8,9 +8,9 @@ namespace as_webforms_sklep
     {
         private const string connString =
                "SERVER=inf16.tl.krakow.pl;" +
-               "DATABASE=tkantor;" +
-               "UID=tkantor;" +
-               "PASSWORD=tkantor;";
+               "DATABASE=manowak;" +
+               "UID=manowak;" +
+               "PASSWORD=manowak;";
 
         private static MySqlConnection connect()
         {
