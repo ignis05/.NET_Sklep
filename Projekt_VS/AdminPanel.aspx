@@ -28,7 +28,7 @@
             </asp:TemplateField>
         </Columns>
         </asp:GridView>
-        <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="false" OnRowCommand="gvProducts_RowCommand" DataKeyNames="id" OnRowDataBound="Products_RowDataBound">
+        <asp:GridView ID="gvProducts" runat="server" AutoGenerateColumns="false" OnRowCommand="gvProducts_RowCommand" DataKeyNames="id" OnRowDataBound="Products_RowDataBound" OnRow>
            <Columns>
                <asp:BoundField DataField="id" HeaderText="ID"/>
                <asp:TemplateField>
@@ -43,22 +43,22 @@
             </asp:TemplateField>
                <asp:TemplateField HeaderText="Name">
                 <ItemTemplate>
-                    <asp:TextBox runat="server" ID="tbProductName" Text='<%#Eval("name") %>'></asp:TextBox>
+                    <asp:TextBox runat="server" ID="tbProductName" Text='<%#Eval("name") %>' AutoPostBack="true"  OnTextChanged="tbProduct_Update"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
                <asp:TemplateField HeaderText="Description">
                 <ItemTemplate>
-                    <asp:TextBox runat="server" ID="tbProductDesc" Text='<%#Eval("description") %>'></asp:TextBox>
+                    <asp:TextBox runat="server" ID="tbProductDescription" Text='<%#Eval("description") %>' AutoPostBack="true"  OnTextChanged="tbProduct_Update"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
                <asp:TemplateField HeaderText="Price">
                 <ItemTemplate>
-                    <asp:TextBox runat="server" ID="tbProductPrice" Text='<%#Eval("price") %>'></asp:TextBox>
+                    <asp:TextBox runat="server" ID="tbProductPrice" Text='<%#Eval("price") %>' AutoPostBack="true"  OnTextChanged="tbProduct_Update"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
                <asp:TemplateField HeaderText="Supplier">
                 <ItemTemplate>
-                    <asp:TextBox runat="server" ID="tbProductSupp" Text='<%#Eval("supplier") %>'></asp:TextBox>
+                    <asp:TextBox runat="server" ID="tbProductSupplier" Text='<%#Eval("supplier") %>' AutoPostBack="true"  OnTextChanged="tbProduct_Update"></asp:TextBox>
                 </ItemTemplate>
             </asp:TemplateField>
            </Columns>

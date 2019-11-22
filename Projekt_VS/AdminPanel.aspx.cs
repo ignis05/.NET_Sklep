@@ -157,5 +157,17 @@ namespace as_webforms_sklep
             }
         }
 
+        protected void tbProduct_Update(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            GridViewRow gvr = textBox.NamingContainer as GridViewRow;
+            HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
+            string id = hf1.Value;
+            string val = textBox.Text;
+            // remove 9 first chars from id to recognize column name
+            string column = textBox.ID.Substring(9, textBox.ID.Length - 9).ToLower();
+            DatabaseHandler.updateProductCol(id, column, val);
+        }
+
     }
 }
