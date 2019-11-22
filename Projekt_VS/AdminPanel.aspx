@@ -93,7 +93,6 @@
 										OnRowCommand="gvProducts_RowCommand"
 										DataKeyNames="id"
 										OnRowDataBound="Products_RowDataBound"
-										OnRow
 									>
 										<Columns>
 											<asp:BoundField DataField="id" HeaderText="ID" />
@@ -140,6 +139,17 @@
 														runat="server"
 														ID="tbProductSupplier"
 														Text='<%#Eval("supplier") %>'
+														AutoPostBack="true"
+														OnTextChanged="tbProduct_Update"
+													></asp:TextBox>
+												</ItemTemplate>
+											</asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Image">
+												<ItemTemplate>
+													<asp:TextBox
+														runat="server"
+														ID="tbProductImg_Path"
+														Text='<%#Eval("img_path") %>'
 														AutoPostBack="true"
 														OnTextChanged="tbProduct_Update"
 													></asp:TextBox>
