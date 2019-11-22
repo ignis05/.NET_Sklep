@@ -102,6 +102,8 @@
   <ItemGroup>
     <Content Include="assets\img\placeholder.png" />
     <Content Include="assets\img\tester_kabli.jfif" />
+    <Content Include="css\admin_panel.css" />
+    <Content Include="js\tabs.js" />
     <Content Include="LoginForm.aspx" />
     <Content Include="RegisterForm.aspx" />
     <Content Include="Web.config" />
