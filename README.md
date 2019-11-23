@@ -17,6 +17,7 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - [x] linki do logowania i jeśli zalogowano na admina panelu administracyjnego
 - [x] link do koszyka
 - [x] lista produktów z opisami
+- [ ] obiekty wyświetlające tylko istotne info o produktach
 - [ ] css dla listy produktów
 - [ ] css dla strony głównej
 - [ ] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
