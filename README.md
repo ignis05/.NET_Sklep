@@ -2,7 +2,7 @@
 
 Sklep internetowy wykorzystaniem najnowszych technologii
 
-## <u>**_na 22 listopada_**</u>
+## <u>**_na ~~22~~ 29 listopada_**</u>
 
 ## Podział stron (wstępna koncepcja):
 ### - panel administaracyjny:
@@ -16,14 +16,17 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 ### - strona główna
 - [x] linki do logowania i jeśli zalogowano na admina panelu administracyjnego
 - [x] link do koszyka
-- [ ] lista produktów z opisami
+- [x] lista produktów z opisami
+- [ ] css dla listy produktów
+- [ ] css dla strony głównej
 - [ ] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
 - [x] dodawanie do koszyka prosto z listy
-- [ ] <u>??? obrazek produktu (link w bazie) ???</u>
+- [x] <u>??? obrazek produktu (link w bazie) ???</u>
 ### - koszyk
 - [x] ma działać bez i z logowaniem (przechowywany w sesji)
 - [x] wyświetlenie dodanych do koszyka produktów
 - [x] możliwość usunięcia
 - [x] możliwość zmiany ilości (dodawanie)
 - [x] możliwość zmiany ilości (usuwanie)
+- [ ] składanie zamówienia
 - [ ] zatwierdzenie zamówienia - powiadomienie email
