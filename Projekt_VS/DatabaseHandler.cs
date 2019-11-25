@@ -123,5 +123,21 @@ namespace as_webforms_sklep
                 return false;
             }
         }
+
+        public static bool addProduct(string category, string name, string imp_path, string description, string price, string supplier)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("INSERT INTO product_info (category, name, img_path, description, price, supplier) VALUES ('"+category+ "', '" + name + "', '" + imp_path + "', '" + description + "', '" + price + "', '" + supplier + "')");
+            if (affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            }
+            else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
     }
 }

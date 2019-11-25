@@ -35,6 +35,13 @@ namespace as_webforms_sklep
 
                     gvOrders.DataSource = DatabaseHandler.selectTable("orders");
                     gvOrders.DataBind();
+
+
+                    addCat.DataSource = DatabaseHandler.selectTable("product_categories");
+                    addCat.DataTextField = "name";
+                    addCat.DataValueField = "id";
+                    addCat.DataBind();
+
                 }
             }
         }
@@ -169,5 +176,18 @@ namespace as_webforms_sklep
             DatabaseHandler.updateProductCol(id, column, val);
         }
 
+        protected void addBT_Click(object sender, EventArgs e)
+        {
+            if(addName.Text.Length > 0 && addImg.Text.Length > 0 && addDesc.Text.Length > 0 && addPrice.Text.Length > 0 && addSupp.Text.Length > 0)
+            {
+                DatabaseHandler.addProduct(addCat.SelectedValue, addName.Text, addImg.Text, addDesc.Text, addPrice.Text, addSupp.Text);
+                gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                gvProducts.DataBind();
+            }
+            else
+            {
+                Response.Write("<script>alert('Wszystkie pola muszą być wypełnione!')</script>");
+            }
+        }
     }
 }
