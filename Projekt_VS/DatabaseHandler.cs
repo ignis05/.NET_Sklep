@@ -76,5 +76,68 @@ namespace as_webforms_sklep
                 conn.Close();
             }
         }
+
+        public static bool updateOrder(string id, string state)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE orders SET state='" + state + "' WHERE id='" + id + "'");
+            if(affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            } else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
+
+        public static bool updateProductCategory(string id, string category)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE product_info SET category='" + category + "' WHERE id='" + id + "'");
+            if (affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            }
+            else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
+
+        public static bool updateProductCol(string id, string column, string value)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE product_info SET "+column+"='"+value+"' WHERE id='" + id + "'");
+            if (affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            }
+            else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
+
+        public static bool addProduct(string category, string name, string imp_path, string description, string price, string supplier)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("INSERT INTO product_info (category, name, img_path, description, price, supplier) VALUES ('"+category+ "', '" + name + "', '" + imp_path + "', '" + description + "', '" + price + "', '" + supplier + "')");
+            if (affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            }
+            else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
     }
 }

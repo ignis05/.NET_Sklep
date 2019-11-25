@@ -149,10 +149,17 @@
                     <td>
                         
                     </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
                     <td>Nazwisko:</td>
                     <td>
                         
                     </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>Adres rozliczeniowy:</td>

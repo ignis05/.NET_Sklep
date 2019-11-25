@@ -60,6 +60,14 @@
                     </td>
                     <td class="auto-style2"></td>
                 </tr>
+                <tr>
+                    <td class="auto-style2">
+                        &nbsp;</td>
+                    <td class="auto-style2">
+                        <asp:Button ID="btToMainForm" runat="server" OnClick="btToMainForm_Click" Text="Strona główna" />
+                    </td>
+                    <td class="auto-style2">&nbsp;</td>
+                </tr>
             </table>
         </div>
     </form>

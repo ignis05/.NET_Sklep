@@ -2,37 +2,32 @@
 
 Sklep internetowy wykorzystaniem najnowszych technologii
 
-## <u>**_na 22 listopada_**</u>
+## <u>**_na ~~22~~ 29 listopada_**</u>
 
 ## Podział stron (wstępna koncepcja):
 ### - panel administaracyjny:
-- dostępny po zalogowaniu na konto z uprawnieniami
-- zarządzanie zakupami i statusem zamówień
-- zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
+- [x] dostępny po zalogowaniu na konto z uprawnieniami
+- [x] zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
+- [ ] zarządzanie produktami
+- [x] zarządzanie statusem zamówień
 ### - strona z logowaniem / rejestracją:
-- możliwość utworzenia konta lub zalogowania się na istniejące
-- (???) mail aktywacyjny przy tworzeniu konta
+- [x] możliwość utworzenia konta lub zalogowania się na istniejące
+- [ ] (???) mail aktywacyjny przy tworzeniu konta
 ### - strona główna
-- linki do logowania, koszyka i jeśli zalogowano na admina panelu administracyjnego
-- lista produktów z opisami
-- wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
-- <b><u>??? dodawanie do koszyka prosto z listy, czy osobna podstrona dla produktu ???</u></b>
+- [x] linki do logowania i jeśli zalogowano na admina panelu administracyjnego
+- [x] link do koszyka
+- [x] lista produktów z opisami
+- [ ] obiekty wyświetlające tylko istotne info o produktach
+- [ ] css dla listy produktów
+- [ ] css dla strony głównej
+- [ ] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
+- [x] dodawanie do koszyka prosto z listy
+- [x] <u>??? obrazek produktu (link w bazie) ???</u>
 ### - koszyk
-- ma działać bez i z logowaniem (<u>??? chyba może być całkowicie client-sided ???</u>)
-- wyświetlenie dodanych do koszyka produktów, możliwośc usunięcia / zmiany ilości
-- zatwierdzenie zamówienia - powiadomienie email
-s
-<hr>
-rejestracja i logowanie użytkowników (mail aktywacyjny?)
-
-2 typy użytkowników - zwykły i admin
-
-admin może:
-	- zarządzać zakupami (zmieniać status)
-	- zarządzać użytkownikami (dawać im admina)
-	- usuwać użytkowników
-	
-koszyk użytkownika
-
-(entity framework?)
-[baza ADO.NET (mniej punktów) LUB baza MySQL]
+- [x] ma działać bez i z logowaniem (przechowywany w sesji)
+- [x] wyświetlenie dodanych do koszyka produktów
+- [x] możliwość usunięcia
+- [x] możliwość zmiany ilości (dodawanie)
+- [x] możliwość zmiany ilości (usuwanie)
+- [ ] składanie zamówienia
+- [ ] zatwierdzenie zamówienia - powiadomienie email
