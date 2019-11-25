@@ -157,6 +157,43 @@
 											</asp:TemplateField>
 										</Columns>
 									</asp:GridView>
+                                    <div class="newProduct">
+                                        <h2>Dodaj nowy produkt:</h2>
+                                        <table border="1">
+                                            <tr>
+                                                <th>Kategoria</th>
+                                                <th>Nazwa</th>
+                                                <th>Opis</th>
+                                                <th>Cena</th>
+                                                <th>Dostawca</th>
+                                                <th>Obrazek</th>
+                                                <th>-</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:DropDownList runat="server" ID="addCat"/>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox runat="server" ID="addName"/>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox runat="server" ID="addDesc"/>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox runat="server" ID="addPrice"/>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox runat="server" ID="addSupp"/>
+                                                </td>
+                                                <td>
+                                                    <asp:TextBox runat="server" ID="addImg"/>
+                                                </td>
+                                                <td>
+                                                    <asp:Button runat="server" Text="+" ID="addBT" OnClick="addBT_Click"/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
 								</div>
 							</div>
 						</div>
