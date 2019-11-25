@@ -13,24 +13,30 @@ namespace as_webforms_sklep
             if (Session["usertoken"] == null)
             {
                 //Response.Redirect("LoginForm.aspx");
-                lLoggedIn.Text = "<p>Nie jesteś zalogowany</p>";
+                lLoggedIn.Text = "Nie jesteś zalogowany";
                 lbToAdmin.Visible = false;
                 lbToLogin.Visible = true;
                 bLogout.Visible = false;
+                lbToRegister.Visible = true;
+                lbToLogin2.Visible = true;
             }
             else if (UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ADMIN || UserHandler.getAccessLevel(Session["usertoken"].ToString()) == AccessLevel.ROOT)
             {
-                lLoggedIn.Text = "<p>Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b></p>";
+                lLoggedIn.Text = "Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b>";
                 lbToAdmin.Visible = true;
                 lbToLogin.Visible = false;
                 bLogout.Visible = true;
+                lbToRegister.Visible = false;
+                lbToLogin2.Visible = false;
             }
             else
             {
-                lLoggedIn.Text = "<p>Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b></p>";
+                lLoggedIn.Text = "Zalogowano jako <b>" + UserHandler.getUsername(Session["usertoken"].ToString()) + "</b>";
                 lbToAdmin.Visible = false;
                 lbToLogin.Visible = false;
                 bLogout.Visible = true;
+                lbToRegister.Visible = false;
+                lbToLogin2.Visible = false;
             }
 
             if (!IsPostBack)
