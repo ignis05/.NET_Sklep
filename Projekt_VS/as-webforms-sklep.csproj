@@ -143,8 +143,10 @@
     <Content Include="assets\css\MainPage\headerStyle.css" />
     <Content Include="assets\css\MainPage\mainStyle.css" />
     <Content Include="assets\css\MainPage\productStyle.css" />
+    <Content Include="assets\css\RegisterPage\registerPage.css" />
     <Content Include="assets\img\headimglow.jpg" />
     <Content Include="assets\img\image-placeholder.jpg" />
+    <Content Include="assets\img\pc_background.png" />
     <Content Include="assets\img\placeholder.png" />
     <Content Include="assets\img\tester_kabli.jfif" />
     <Content Include="css\admin_panel.css" />
