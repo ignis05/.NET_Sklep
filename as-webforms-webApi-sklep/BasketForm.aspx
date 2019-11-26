@@ -48,6 +48,7 @@
                 </div>
             </ItemTemplate>
         </asp:Repeater>
+        <asp:Button ID="bOrder" runat="server" OnClick="bOrder_Click" Text="Złóż zamówienie" />
     </form>
 </body>
 </html>

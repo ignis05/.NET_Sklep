@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace as_webforms_sklep
-{
-
-
-    public partial class BasketForm
-    {
-
+namespace as_webforms_sklep {
+    
+    
+    public partial class BasketForm {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace as_webforms_sklep
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// lTotalPrice control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace as_webforms_sklep
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lTotalPrice;
-
+        
         /// <summary>
         /// lbToMain control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace as_webforms_sklep
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToMain;
-
+        
         /// <summary>
         /// rBasket control.
         /// </summary>
@@ -49,5 +47,14 @@ namespace as_webforms_sklep
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rBasket;
+        
+        /// <summary>
+        /// bOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bOrder;
     }
 }
