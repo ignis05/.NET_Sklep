@@ -211,7 +211,7 @@
 										<Columns>
 											<asp:BoundField DataField="id" HeaderText="ID" />
 											<asp:BoundField DataField="user" HeaderText="User" />
-											<asp:BoundField DataField="date" HeaderText="Date" />
+											<asp:BoundField DataField="datetime" HeaderText="Date" />
 											<asp:TemplateField HeaderText="State">
 												<ItemTemplate>
 													<asp:DropDownList ID="orderStateList" runat="server" AutoPostBack="true" OnSelectedIndexChanged="updateOrderState"> </asp:DropDownList>
