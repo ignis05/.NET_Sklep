@@ -158,5 +158,21 @@ namespace as_webforms_sklep
                 Debug.WriteLine("=====");
             }
         }
+
+        void doSearch()
+        {
+            rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM product_info WHERE name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%'", tbSearch.Text));
+            rProducts.DataBind();
+        }
+
+        protected void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            doSearch();
+        }
+
+        protected void bSearch_Click(object sender, EventArgs e)
+        {
+            doSearch();
+        }
     }
 }

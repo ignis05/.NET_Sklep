@@ -49,6 +49,24 @@ namespace as_webforms_sklep {
         protected global::System.Web.UI.WebControls.LinkButton lbToLogin;
         
         /// <summary>
+        /// tbSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbSearch;
+        
+        /// <summary>
+        /// bSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bSearch;
+        
+        /// <summary>
         /// lbToBasket control.
         /// </summary>
         /// <remarks>

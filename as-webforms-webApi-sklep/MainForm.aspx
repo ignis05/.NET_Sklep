@@ -40,6 +40,10 @@
                             <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton></li>
                     </ul>
                 </div>
+                <div id="search-box">
+                    <asp:TextBox ID="tbSearch" runat="server" OnTextChanged="tbSearch_TextChanged" AutoPostBack="True" AutoCompleteType="Search"></asp:TextBox>
+                    <asp:Button ID="bSearch" runat="server" Text="Szukaj" OnClick="bSearch_Click" />
+                </div>
                 <div id="user-status">
                     <asp:LinkButton ID="lbToBasket" CssClass="cart-bt" runat="server" PostBackUrl="~/BasketForm.aspx">Koszyk</asp:LinkButton>
                     <asp:Label ID="lLoggedIn" CssClass="logged-as" runat="server" Text="Nie jesteś zalogowany."></asp:Label>
