@@ -174,5 +174,21 @@ namespace as_webforms_sklep
                 return false;
             }
         }
+
+        public static bool updateVerificationStatus(string id)
+        {
+            var transaction = new Transaction();
+            int affectedRecords = transaction.executeCommand("UPDATE user_data SET verified=1 WHERE user_id='" + id + "'");
+            if (affectedRecords == 1)
+            {
+                transaction.commit();
+                return true;
+            }
+            else
+            {
+                transaction.rollback();
+                return false;
+            }
+        }
     }
 }

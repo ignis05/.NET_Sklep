@@ -1,4 +1,5 @@
-﻿using System;
+﻿using as_webforms_sklep.services;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -133,6 +134,7 @@ namespace as_webforms_sklep
         {
             if (DatabaseHandler.createOrder(Session["usertoken"] == null ? "" : (string)Session["usertoken"], (List<BasketItem>)Session["basket"]))
             {
+                EmailService.ProductBought("dasdsa");
                 Session["basket"] = null;
                 Response.Redirect("ReceiptPage.aspx");
             }
