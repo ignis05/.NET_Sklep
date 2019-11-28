@@ -13,7 +13,7 @@ namespace as_webforms_sklep.services
 
         internal static void ProductBought(string email)
         {
-            using (MailMessage mm = new MailMessage("projektsklepkoszalka@gmail.com", email))
+            using (MailMessage mm = new MailMessage("noreply.sklep.asp@gmail.com", email))
             {
                 mm.Subject = "Dziękujemy za zakup w naszym sklepie";
                 mm.Body = "Dziękujemy za zakup w naszym sklepie, transakcja została wykonana pomyślnie ";
@@ -21,7 +21,7 @@ namespace as_webforms_sklep.services
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("projektsklepkoszalka@gmail.com", "zaq1@WSX");
+                NetworkCredential NetworkCred = new NetworkCredential("noreply.sklep.asp@gmail.com", "zaq1@WSX");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
@@ -30,7 +30,7 @@ namespace as_webforms_sklep.services
         }
         internal static void UserRegisterConfirmation(string email, string username)
         {
-            using (MailMessage mm = new MailMessage("projektsklepkoszalka@gmail.com", email))
+            using (MailMessage mm = new MailMessage("noreply.sklep.asp@gmail.com", email))
             {
                 var id = DatabaseHandler.selectQuery("SELECT id FROM users WHERE username LIKE '" + username + "'");
                 var idTrue = "";
@@ -48,7 +48,7 @@ namespace as_webforms_sklep.services
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("projektsklepkoszalka@gmail.com", "zaq1@WSX");
+                NetworkCredential NetworkCred = new NetworkCredential("noreply.sklep.asp@gmail.com", "zaq1@WSX");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;
