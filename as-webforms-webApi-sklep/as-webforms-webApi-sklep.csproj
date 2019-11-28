@@ -105,7 +105,6 @@
     <Content Include="BasketForm.aspx" />
     <Content Include="css\admin_panel.css" />
     <Content Include="Global.asax" />
-    <Content Include="js\tabs.js" />
     <Content Include="LoginForm.aspx" />
     <Content Include="MainForm.aspx" />
     <Content Include="ReceiptPage.aspx" />
