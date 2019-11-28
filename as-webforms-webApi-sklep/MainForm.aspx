@@ -269,6 +269,13 @@
         .tencos{
             margin-left:20px
         }
+        #KatFilter{
+            margin-left:20px;
+            background-color:rgb(237,237,237);
+            height:25px;
+            color:gray;
+            margin-top:3px
+        }
     </style>
 </head>
 <body>
@@ -287,8 +294,10 @@
                         <li class="tencos">
                             <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton>
                         </li>
+                        <li>
+                            <asp:DropDownList ID="KatFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="filterKat"></asp:DropDownList>
+                        </li>
                     </ul>
-                    <asp:DropDownList ID="KatFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="filterKat"></asp:DropDownList>
                 </div>
                 <div id="user-status">
                     <asp:LinkButton ID="lbToBasket" CssClass="cart-bt" runat="server" PostBackUrl="~/BasketForm.aspx">Koszyk</asp:LinkButton>
@@ -348,10 +357,10 @@
                 </div>
                 <div id="info">
                     <p>Kontakt</p>
-                    <span>Telefon: +48 123 456 789</span>
-                    <span>Mail: sklepinternetowy@sklep.pl</span>
-                    <span>Adres: ul. Sklepowa 4/20, 32-137 Koszyce</span>
-                    <span>© by papaj</span>
+                    <span>Telefon: +48 987123546</span>
+                    <span>Mail: aaa@aaa.aa</span>
+                    <span>Adres: ul. Celna 5/5, 55-555 Wadowice</span>
+                    <span>© by aaaaaa</span>
                 </div>
             </div>
         </footer>
