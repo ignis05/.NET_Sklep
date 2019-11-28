@@ -37,5 +37,10 @@ namespace as_webforms_sklep
         {
             Response.Redirect("LoginForm.aspx");
         }
+
+        protected void btToMainForm_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MainForm.aspx");
+        }
     }
 }

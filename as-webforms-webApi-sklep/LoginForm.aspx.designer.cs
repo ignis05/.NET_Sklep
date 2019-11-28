@@ -69,13 +69,13 @@ namespace as_webforms_sklep
         protected global::System.Web.UI.WebControls.Button bLogIn;
 
         /// <summary>
-        /// Kontrolka lMsg.
+        /// Kontrolka btToMainForm.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lMsg;
+        protected global::System.Web.UI.WebControls.Button btToMainForm;
 
         /// <summary>
         /// Kontrolka bGoToRegister.
@@ -87,12 +87,12 @@ namespace as_webforms_sklep
         protected global::System.Web.UI.WebControls.Button bGoToRegister;
 
         /// <summary>
-        /// Kontrolka btToMainForm.
+        /// Kontrolka lMsg.
         /// </summary>
         /// <remarks>
         /// Pole generowane automatycznie.
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btToMainForm;
+        protected global::System.Web.UI.WebControls.Label lMsg;
     }
 }

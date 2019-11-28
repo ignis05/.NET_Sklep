@@ -6,19 +6,250 @@
 <head runat="server">
     <meta charset="UTF-8" />
     <title>Sklep</title>
-    <link href="~/assets/css/MainPage/productStyle.css" rel="stylesheet" />
-    <link href="~/assets/css/MainPage/headerStyle.css" rel="stylesheet" />
-    <link href="~/assets/css/MainPage/mainStyle.css" rel="stylesheet" />
-    <link href="~/assets/css/MainPage/footerStyle.css" rel="stylesheet" />
     <style>
         * {
             margin: 0;
             padding: 0;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-family: Tahoma, sans-serif;
         }
 
         body {
-            background: black;
+            background: rgb(237,237,237);
+        }
+        footer {
+            margin-top: 5px;
+            border-top: 2px solid #888;
+            color: gray;
+            height: 150px;
+            background: rgb(237,237,237);
+            min-width: 1350px;
+            text-align:center;
+        }
+
+        #flexfooter {
+            display: flex;
+        }
+
+        #sitemap {
+            flex: 2;
+            display: flex;
+        }
+
+        #sitemap div {
+            margin: 14px;
+        }
+
+        #sitemap p {
+            font-size: 125%;
+            text-decoration: underline;
+        }
+
+        #sitemap a {
+            text-decoration: none;
+            color: gray;
+            display: block;
+        }
+
+        #info {
+            flex: 1;
+        }
+
+        #info p {
+            font-size: 125%;
+            text-decoration: underline;
+        }
+
+        #info span {
+            display: block;
+        }
+
+        #copyright {
+            text-align: center;
+        }
+        main {
+            min-width: 1350px;
+            display: flex;
+            color: gray;
+        }
+        #categories {
+            width: 15%;
+            margin-right: 5px;
+            border: 2px solid #888;
+        }
+
+        #products {
+            width: 84%;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #list-cats li {
+            display: block;
+            padding: 10px;
+            border-bottom: 1px solid #888;
+            border-collapse: collapse;
+            text-align:center;
+            height:50px;
+            line-height:50px;
+            font-size:30px
+        }
+        header {
+            color: gray;
+            min-width: 1350px;
+            background: rgb(237,237,237);
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #888;
+            border-top: 2px solid #888;
+        }
+
+        #title img {
+            width: 100%;
+        }
+
+        #menu {
+            padding: 5px 2px;
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 2px solid #888;
+            border-left: 2px solid #888;
+            border-right: 2px solid #888;
+        }
+
+        #menu-list {
+            width: 40%;
+            min-width: 650px;
+        }
+
+        #menu-list li {
+            display: inline-block;
+        }
+
+        #menu-list li a {
+            text-decoration: none;
+            color: gray;
+        }
+
+        #user-status {
+            display: flex;
+            justify-content: flex-end;
+            width: 40%;
+            min-width: 650px;
+        }
+
+        #user-status a {
+            text-decoration: none;
+            color: gray;
+        }
+
+        .cart-bt {
+            width: auto;
+            padding-right: 10px;
+        }
+
+        .logged-as {
+            flex: 1;
+        }
+
+        .logout-bt {
+            flex: 1;
+        }
+
+        #list-cats-box {
+            display: none;
+        }
+
+
+
+        .product {
+            border: 2px solid #888;
+            color: gray;
+            display: flex;
+            width: 100%;
+            min-width: 925px;
+            height: 25vh;
+            text-align:center
+        }
+
+        .prod-img-box {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            flex: 1;
+        }
+
+        .prod-img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .prod-info {
+            flex: 3;
+            min-width: 525px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .prod-title {
+            margin: 5px;
+            font-size: x-large;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .prod-spec-box {
+            flex: 7;
+            display: flex;
+            justify-content: stretch;
+        }
+
+        .prod-spec {
+            margin-left: 5px;
+            min-width: 400px;
+        }
+
+        .spec-title {
+            font-size: 150%;
+            text-decoration: underline;
+        }
+
+        .spec-text {
+            padding-top: 10px;
+        }
+
+        .prod-buy-box {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+        }
+
+        .prod-price {
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+
+        .prod-price u {
+            font-size: 150%;
+            text-decoration: underline;
+        }
+
+        .prod-buy {
+        }
+
+        .prod-buy button {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -26,7 +257,7 @@
     <form id="form1" runat="server">
         <header>
             <div id="title">
-                <img src="assets/img/headimglow.jpg" />
+                <img src="assets/img/headerimg4.png" />
             </div>
             <div id="menu">
                 <div id="menu-list-box">

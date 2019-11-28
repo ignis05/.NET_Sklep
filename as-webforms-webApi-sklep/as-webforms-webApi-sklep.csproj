@@ -98,10 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPanel.aspx" />
-    <Content Include="assets\css\MainPage\footerStyle.css" />
-    <Content Include="assets\css\MainPage\headerStyle.css" />
-    <Content Include="assets\css\MainPage\mainStyle.css" />
-    <Content Include="assets\css\MainPage\productStyle.css" />
     <Content Include="assets\img\headimglow.jpg" />
     <Content Include="assets\img\image-placeholder.jpg" />
     <Content Include="assets\img\placeholder.png" />
