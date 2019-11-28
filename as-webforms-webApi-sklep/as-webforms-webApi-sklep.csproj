@@ -114,6 +114,7 @@
     <Content Include="js\tabs.js" />
     <Content Include="LoginForm.aspx" />
     <Content Include="MainForm.aspx" />
+    <Content Include="ReceiptPage.aspx" />
     <Content Include="RegisterForm.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -153,6 +154,13 @@
       <DependentUpon>MainForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiptPage.aspx.cs">
+      <DependentUpon>ReceiptPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReceiptPage.aspx.designer.cs">
+      <DependentUpon>ReceiptPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RegisterForm.aspx.cs">
       <DependentUpon>RegisterForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

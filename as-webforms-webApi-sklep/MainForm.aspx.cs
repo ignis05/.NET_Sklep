@@ -79,7 +79,7 @@ namespace as_webforms_sklep
             int totalAmount = 0;
             foreach (BasketItem basketItem in basketList)
             {
-                totalAmount += basketItem.amount;
+                totalAmount += basketItem.Amount;
             }
 
             lbToBasket.Text = "Koszyk (" + totalAmount.ToString() + ")";
@@ -124,7 +124,7 @@ namespace as_webforms_sklep
                     Debug.WriteLine("/u/1R0NYMAN happened");
                 }
 
-                BasketItem basketItem = basketList.Find(item => item.productId == (e.CommandArgument.ToString()));
+                BasketItem basketItem = basketList.Find(item => item.ProductId == (e.CommandArgument.ToString()));
 
                 if (basketItem == null)
                 {
@@ -133,13 +133,13 @@ namespace as_webforms_sklep
                 }
                 else
                 {
-                    basketItem.amount = basketItem.amount + amountToAdd;
+                    basketItem.Amount = basketItem.Amount + amountToAdd;
                 }
 
                 calculateBasketItemCount();
 
-                Debug.WriteLine("productId: " + basketItem.productId.ToString());
-                Debug.WriteLine("amount: " + basketItem.amount.ToString());
+                Debug.WriteLine("productId: " + basketItem.ProductId.ToString());
+                Debug.WriteLine("amount: " + basketItem.Amount.ToString());
                 Debug.WriteLine("=====");
             }
         }

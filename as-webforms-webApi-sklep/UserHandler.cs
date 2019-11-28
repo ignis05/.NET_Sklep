@@ -123,6 +123,14 @@ namespace as_webforms_sklep
             return false;
         }
 
+        public static int getUserId(string token)
+        {
+            if (sessions.ContainsKey(token))
+                return sessions[token].UserId;
+            else
+                return -1;
+        }
+
         public static string getUsername(string token)
         {
             if (sessions.ContainsKey(token))

@@ -43,9 +43,9 @@ namespace as_webforms_sklep
             DataTable dt = new DataTable();
             foreach (BasketItem basketItem in basketList)
             {
-                DataTable tempDt = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE id = " + basketItem.productId);
+                DataTable tempDt = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE id = " + basketItem.ProductId);
                 tempDt.Columns.Add("amount", typeof(int));
-                tempDt.Rows[0]["amount"] = basketItem.amount;
+                tempDt.Rows[0]["amount"] = basketItem.Amount;
 
                 dt.Merge(tempDt);
             }
@@ -68,7 +68,7 @@ namespace as_webforms_sklep
             double totalPrice = 0;
             foreach (BasketItem basketItem in basketList)
             {
-                totalPrice += basketItem.amount * basketItem.price;
+                totalPrice += basketItem.Amount * basketItem.Price;
             }
 
             lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString("N2") + " zł";
@@ -89,7 +89,7 @@ namespace as_webforms_sklep
                     basketList = (List<BasketItem>)Session["basket"];
                 }
 
-                BasketItem basketItem = basketList.Find(item => item.productId == (e.CommandArgument.ToString()));
+                BasketItem basketItem = basketList.Find(item => item.ProductId == (e.CommandArgument.ToString()));
 
                 int amountToSet = 0;
                 TextBox tbAmount = (TextBox)e.Item.FindControl("tbAmount");
@@ -99,10 +99,10 @@ namespace as_webforms_sklep
                 }
                 catch (FormatException)
                 {
-                    amountToSet = basketItem.amount;
+                    amountToSet = basketItem.Amount;
                 }
 
-                basketItem.amount = amountToSet;
+                basketItem.Amount = amountToSet;
 
                 calculateTotalPrice();
             }
@@ -119,7 +119,7 @@ namespace as_webforms_sklep
                     basketList = (List<BasketItem>)Session["basket"];
                 }
 
-                BasketItem basketItem = basketList.Find(item => item.productId == (e.CommandArgument.ToString()));
+                BasketItem basketItem = basketList.Find(item => item.ProductId == (e.CommandArgument.ToString()));
 
                 basketList.Remove(basketItem);
                 rBasket.DataSource = createProductList();
@@ -127,6 +127,17 @@ namespace as_webforms_sklep
 
                 calculateTotalPrice();
             }
+        }
+
+        protected void bOrder_Click(object sender, EventArgs e)
+        {
+            if (DatabaseHandler.createOrder(Session["usertoken"] == null ? "" : (string)Session["usertoken"], (List<BasketItem>)Session["basket"]))
+            {
+                Session["basket"] = null;
+                Response.Redirect("ReceiptPage.aspx");
+            }
+            else
+                ClientScript.RegisterStartupScript(GetType(), "alert", "alert('Nie udało się złożyć zamówienia!')");
         }
     }
 }

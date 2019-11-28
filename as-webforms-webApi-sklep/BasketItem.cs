@@ -1,25 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace as_webforms_sklep
+﻿namespace as_webforms_sklep
 {
     public class BasketItem
     {
-        private string _productId;
-        private int _amount;
-        private double _price;
+        public string ProductId { get; set; }
+        public int Amount { get; set; }
+        public double Price { get; set; }
 
-        public string productId { get { return _productId; } set { _productId = value; } }
-        public int amount { get { return _amount; } set { _amount = value; } }
-        public double price { get { return _price; } set { _price = value; } }
-
-        public BasketItem(string pid, int am, double pr)
+        public BasketItem(string productId, int amount, double price)
         {
-            productId = pid;
-            amount = am;
-            price = pr;
+            ProductId = productId;
+            Amount = amount;
+            Price = price;
         }
     }
 }
