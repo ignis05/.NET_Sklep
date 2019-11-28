@@ -43,6 +43,14 @@ namespace as_webforms_sklep
             {
                 rProducts.DataSource = DatabaseHandler.selectTable("product_info");
                 rProducts.DataBind();
+
+                KatFilter.DataSource = DatabaseHandler.selectTable("product_categories");
+                KatFilter.DataTextField = "name";
+                KatFilter.DataValueField = "id";
+                KatFilter.DataBind();
+                int x = KatFilter.Items.Count;
+                KatFilter.Items.Insert(x, new ListItem("Kategoria", "null"));
+                KatFilter.SelectedValue = "null";
             }
 
             if (Session["basket"] == null)
@@ -52,6 +60,20 @@ namespace as_webforms_sklep
             }
 
             calculateBasketItemCount();
+        }
+
+        protected void filterKat(object sender, EventArgs e)
+        {
+            DropDownList ddl = (DropDownList)sender;
+            string val = ddl.SelectedValue;
+            if(val == "null")
+            {
+                rProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                rProducts.DataBind();
+                return;
+            }
+            rProducts.DataSource = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE `category`='"+val+"'");
+            rProducts.DataBind();
         }
 
         protected void bLogout_Click(object sender, EventArgs e)

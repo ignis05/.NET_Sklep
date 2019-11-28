@@ -288,6 +288,7 @@
                             <asp:LinkButton ID="lbToLogin" runat="server" PostBackUrl="~/LoginForm.aspx">Zaloguj się</asp:LinkButton>
                         </li>
                     </ul>
+                    <asp:DropDownList ID="KatFilter" runat="server" AutoPostBack="true" OnSelectedIndexChanged="filterKat"></asp:DropDownList>
                 </div>
                 <div id="user-status">
                     <asp:LinkButton ID="lbToBasket" CssClass="cart-bt" runat="server" PostBackUrl="~/BasketForm.aspx">Koszyk</asp:LinkButton>
