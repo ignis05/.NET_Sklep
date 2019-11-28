@@ -8,19 +8,19 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 ### - panel administaracyjny:
 - [x] dostępny po zalogowaniu na konto z uprawnieniami
 - [x] zarządzanie użytkownikami (nadawanie statusu admina, usuwanie kont)
-- [ ] zarządzanie produktami
+- [x] zarządzanie produktami
 - [x] zarządzanie statusem zamówień
 ### - strona z logowaniem / rejestracją:
 - [x] możliwość utworzenia konta lub zalogowania się na istniejące
-- [ ] (???) mail aktywacyjny przy tworzeniu konta
+- [x] (???) mail aktywacyjny przy tworzeniu konta
 ### - strona główna
 - [x] linki do logowania i jeśli zalogowano na admina panelu administracyjnego
 - [x] link do koszyka
 - [x] lista produktów z opisami
-- [ ] obiekty wyświetlające tylko istotne info o produktach
-- [ ] css dla listy produktów
-- [ ] css dla strony głównej
-- [ ] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
+- [x] obiekty wyświetlające tylko istotne info o produktach
+- [x] css dla listy produktów
+- [x] css dla strony głównej
+- [x] wyszukiwanie produktów (<u>??? filtrowanie ???</u>)
 - [x] dodawanie do koszyka prosto z listy
 - [x] <u>??? obrazek produktu (link w bazie) ???</u>
 ### - koszyk
@@ -29,5 +29,5 @@ Sklep internetowy wykorzystaniem najnowszych technologii
 - [x] możliwość usunięcia
 - [x] możliwość zmiany ilości (dodawanie)
 - [x] możliwość zmiany ilości (usuwanie)
-- [ ] składanie zamówienia
-- [ ] zatwierdzenie zamówienia - powiadomienie email
+- [x] składanie zamówienia
+- [x] zatwierdzenie zamówienia - powiadomienie email

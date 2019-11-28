@@ -1,4 +1,5 @@
-﻿using System;
+﻿using as_webforms_sklep.services;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -13,6 +14,14 @@ namespace as_webforms_sklep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["usertoken"] == null)
+            {
+                tbEmail.Enabled = true;
+            } else
+            {
+                tbEmail.Text = UserHandler.getUserData(Session["usertoken"].ToString()).Rows[0]["email"].ToString();
+            }
+
             if (Session["basket"] == null)
             {
                 Debug.WriteLine("Create new basket");
@@ -131,8 +140,11 @@ namespace as_webforms_sklep
 
         protected void bOrder_Click(object sender, EventArgs e)
         {
+            if (!IsValid) return;
+
             if (DatabaseHandler.createOrder(Session["usertoken"] == null ? "" : (string)Session["usertoken"], (List<BasketItem>)Session["basket"]))
             {
+                EmailService.ProductBought(tbEmail.Text);
                 Session["basket"] = null;
                 Response.Redirect("ReceiptPage.aspx");
             }
