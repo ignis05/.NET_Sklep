@@ -7,13 +7,11 @@
 // </generowany automatycznie>
 //------------------------------------------------------------------------------
 
-namespace as_webforms_sklep
-{
-
-
-    public partial class LoginForm
-    {
-
+namespace as_webforms_sklep {
+    
+    
+    public partial class LoginForm {
+        
         /// <summary>
         /// Kontrolka form1.
         /// </summary>
@@ -22,16 +20,7 @@ namespace as_webforms_sklep
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Kontrolka lUsername.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lUsername;
-
+        
         /// <summary>
         /// Kontrolka tbUsername.
         /// </summary>
@@ -40,16 +29,7 @@ namespace as_webforms_sklep
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbUsername;
-
-        /// <summary>
-        /// Kontrolka lPassword.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lPassword;
-
+        
         /// <summary>
         /// Kontrolka tbPassword.
         /// </summary>
@@ -58,7 +38,7 @@ namespace as_webforms_sklep
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbPassword;
-
+        
         /// <summary>
         /// Kontrolka bLogIn.
         /// </summary>
@@ -67,16 +47,7 @@ namespace as_webforms_sklep
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bLogIn;
-
-        /// <summary>
-        /// Kontrolka lMsg.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lMsg;
-
+        
         /// <summary>
         /// Kontrolka bGoToRegister.
         /// </summary>
@@ -85,7 +56,7 @@ namespace as_webforms_sklep
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bGoToRegister;
-
+        
         /// <summary>
         /// Kontrolka btToMainForm.
         /// </summary>
@@ -94,5 +65,14 @@ namespace as_webforms_sklep
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btToMainForm;
+        
+        /// <summary>
+        /// Kontrolka lMsg.
+        /// </summary>
+        /// <remarks>
+        /// Pole generowane automatycznie.
+        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lMsg;
     }
 }
