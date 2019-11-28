@@ -56,15 +56,6 @@ namespace as_webforms_sklep {
         /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btToMainForm;
-
-        /// <summary>
-        /// Kontrolka btToMainForm.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btToMainForm;
         
         /// <summary>
         /// Kontrolka lMsg.
