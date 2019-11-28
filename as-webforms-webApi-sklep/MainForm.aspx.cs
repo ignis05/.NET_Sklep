@@ -43,6 +43,21 @@ namespace as_webforms_sklep
             {
                 rProducts.DataSource = DatabaseHandler.selectTable("product_info");
                 rProducts.DataBind();
+
+                lvCategories.DataSource = DatabaseHandler.selectTable("product_categories");
+                lvCategories.DataBind();
+            }
+
+            if(Request.QueryString["category"] != null)
+            {
+                string category = Request.QueryString["category"];
+                var catQuery = DatabaseHandler.selectQuery("SELECT id FROM product_categories WHERE name LIKE '" + category + "'");
+                if (catQuery.Rows.Count == 1)
+                {
+                    string catId = catQuery.Rows[0]["id"].ToString();
+                    rProducts.DataSource = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE category LIKE '" + catId + "'");
+                    rProducts.DataBind();
+                }
             }
 
             if (Session["basket"] == null)

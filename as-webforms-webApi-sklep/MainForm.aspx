@@ -50,12 +50,12 @@
 
         <main>
             <div id="categories">
-                <ul id="list-cats">
-                    <li>Tutaj</li>
-                    <li>Jakieś</li>
-                    <li>Kategorie</li>
-                    <li>Do</li>
-                    <li>Filtrowania</li>
+                <ul>
+                    <asp:ListView ID="lvCategories" runat="server">
+                        <ItemTemplate>
+                            <li><a href="<%# "?category=" + Eval("name") %>"> <%# Eval("name") %></a></li>
+                        </ItemTemplate>
+                    </asp:ListView>
                 </ul>
             </div>
             <div id="products">
