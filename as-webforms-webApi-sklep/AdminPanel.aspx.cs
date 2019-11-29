@@ -52,10 +52,16 @@ namespace as_webforms_sklep
             {
                 Debug.WriteLine(e.CommandArgument.ToString());
 
-                if (UserHandler.deleteUser(e.CommandArgument.ToString()))
-                    Debug.WriteLine("Deleted user with id: " + e.CommandArgument.ToString());
-                else
-                    Debug.WriteLine("Failed to delete user with id: " + e.CommandArgument.ToString());
+                try
+                {
+                    UserHandler.deleteUser(e.CommandArgument.ToString());
+                }
+                catch
+                {
+                    Response.Write("<script>alert('Użytkownik jest powiązany z historią zamówień')</script>");
+                    //DatabaseHandler.updateOrdersToAnon(e.CommandArgument.ToString()); //nie działa
+                }
+
 
                 gvUsers.DataSource = DatabaseHandler.selectTable("users");
                 gvUsers.DataBind();
@@ -168,8 +174,7 @@ namespace as_webforms_sklep
         {
             TextBox textBox = sender as TextBox;
             GridViewRow gvr = textBox.NamingContainer as GridViewRow;
-            HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
-            string id = hf1.Value;
+            string id = gvr.Cells[0].Text;
             string val = textBox.Text;
             // remove 9 first chars from id to recognize column name
             string column = textBox.ID.Substring(9, textBox.ID.Length - 9).ToLower();

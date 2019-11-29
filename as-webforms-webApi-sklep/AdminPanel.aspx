@@ -177,7 +177,7 @@
 								<asp:LinkButton
 									ID="btUpdateUser"
 									runat="server"
-									Text='<%# ProcessAccessLevel(Eval("access_level")) %>'
+									Text='<%#Convert.ToInt32(Eval("id")) == -1 ? "" : ProcessAccessLevel(Eval("access_level")) %>'
 									CommandName="UpdateUser"
 									AllowPaging="True"
 									CommandArgument='<%#Eval("id")+","+ Eval("access_level")%>'

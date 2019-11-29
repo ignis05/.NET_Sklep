@@ -190,5 +190,14 @@ namespace as_webforms_sklep
                 return false;
             }
         }
+
+        public static void updateOrdersToAnon(string user_id)
+        {
+            var transaction = new Transaction();
+            transaction.executeCommand("UPDATE orders SET user='-1' WHERE user='" + user_id + "'");
+            transaction.executeCommand("DELETE FROM user_data WHERE user_id='" + user_id + "'");
+            transaction.executeCommand("DELETE FROM users WHERE id='" + user_id + "'");
+            transaction.commit();
+        }
     }
 }
