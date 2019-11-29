@@ -123,7 +123,7 @@
 
         #menu-list {
             width: 40%;
-            min-width: 650px;
+            min-width: 450px;
         }
 
         #menu-list li {
