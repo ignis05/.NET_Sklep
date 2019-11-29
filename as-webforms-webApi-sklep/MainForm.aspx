@@ -285,6 +285,7 @@
             cursor:pointer;
         }
     </style>
+    <link rel="stylesheet" href="/css/main.css" />
 </head>
 <body>
     <form id="form1" runat="server">

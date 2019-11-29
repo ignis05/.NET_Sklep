@@ -105,6 +105,7 @@
     <Content Include="assets\img\tester_kabli.jfif" />
     <Content Include="BasketForm.aspx" />
     <Content Include="css\admin_panel.css" />
+    <Content Include="css\main.css" />
     <Content Include="Global.asax" />
     <Content Include="LoginForm.aspx" />
     <Content Include="MainForm.aspx" />
