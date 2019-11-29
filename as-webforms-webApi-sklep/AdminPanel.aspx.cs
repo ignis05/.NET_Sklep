@@ -30,7 +30,7 @@ namespace as_webforms_sklep
                     gvUsers.DataSource = DatabaseHandler.selectTable("users");
                     gvUsers.DataBind();
 
-                    gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                    gvProducts.DataSource = DatabaseHandler.selectTable("products");
                     gvProducts.DataBind();
 
                     gvOrders.DataSource = DatabaseHandler.selectTable("orders");
@@ -149,7 +149,7 @@ namespace as_webforms_sklep
             HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
             string id = hf1.Value;
             DatabaseHandler.updateProductCategory(id, val);
-            gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+            gvProducts.DataSource = DatabaseHandler.selectTable("products");
             gvProducts.DataBind();
         }
 
@@ -185,7 +185,7 @@ namespace as_webforms_sklep
             if(addName.Text.Length > 0 && addImg.Text.Length > 0 && addDesc.Text.Length > 0 && addPrice.Text.Length > 0 && addSupp.Text.Length > 0)
             {
                 DatabaseHandler.addProduct(addCat.SelectedValue, addName.Text, addImg.Text, addDesc.Text, addPrice.Text, addSupp.Text);
-                gvProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                gvProducts.DataSource = DatabaseHandler.selectTable("products");
                 gvProducts.DataBind();
             }
             else

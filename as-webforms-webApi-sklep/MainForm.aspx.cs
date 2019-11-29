@@ -41,7 +41,7 @@ namespace as_webforms_sklep
 
             if (!IsPostBack)
             {
-                rProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                rProducts.DataSource = DatabaseHandler.selectTable("products");
                 rProducts.DataBind();
 
                 KatFilter.DataSource = DatabaseHandler.selectTable("product_categories");
@@ -68,11 +68,11 @@ namespace as_webforms_sklep
             string val = ddl.SelectedValue;
             if(val == "null")
             {
-                rProducts.DataSource = DatabaseHandler.selectTable("product_info");
+                rProducts.DataSource = DatabaseHandler.selectTable("products");
                 rProducts.DataBind();
                 return;
             }
-            rProducts.DataSource = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE `category`='"+val+"'");
+            rProducts.DataSource = DatabaseHandler.selectQuery("SELECT * FROM products WHERE `category`='"+val+"'");
             rProducts.DataBind();
         }
 
@@ -170,11 +170,11 @@ namespace as_webforms_sklep
         {
             if(KatFilter.SelectedValue == "null")
             {
-                rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM product_info WHERE name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%'", tbSearch.Text));
+                rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM products WHERE name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%'", tbSearch.Text));
             }
             else
             {
-                rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM product_info WHERE category LIKE '%{1}%' AND ( name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%')", tbSearch.Text, KatFilter.SelectedValue));
+                rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM products WHERE category LIKE '%{1}%' AND ( name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%')", tbSearch.Text, KatFilter.SelectedValue));
             }
             
             rProducts.DataBind();

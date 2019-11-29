@@ -52,7 +52,7 @@ namespace as_webforms_sklep
             DataTable dt = new DataTable();
             foreach (BasketItem basketItem in basketList)
             {
-                DataTable tempDt = DatabaseHandler.selectQuery("SELECT * FROM product_info WHERE id = " + basketItem.ProductId);
+                DataTable tempDt = DatabaseHandler.selectQuery("SELECT * FROM products WHERE id = " + basketItem.ProductId);
                 tempDt.Columns.Add("amount", typeof(int));
                 tempDt.Rows[0]["amount"] = basketItem.Amount;
 
