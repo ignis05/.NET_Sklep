@@ -312,15 +312,6 @@
         </header>
 
         <main>
-            <div id="categories">
-                <ul>
-                    <asp:ListView ID="lvCategories" runat="server">
-                        <ItemTemplate>
-                            <li><a href="<%# "?category=" + Eval("name") %>"> <%# Eval("name") %></a></li>
-                        </ItemTemplate>
-                    </asp:ListView>
-                </ul>
-            </div>
             <div id="products">
                 <asp:Repeater ID="rProducts" runat="server" OnItemCommand="basketHandler">
                     <ItemTemplate>
