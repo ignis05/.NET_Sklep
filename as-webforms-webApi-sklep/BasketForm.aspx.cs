@@ -81,6 +81,7 @@ namespace as_webforms_sklep
             }
 
             lTotalPrice.Text = "Cena wszystkich przedmiotów w koszyku to: " + totalPrice.ToString("N2") + " zł";
+            calculateBasketItemCount();
         }
 
         protected void basketHandler(object source, RepeaterCommandEventArgs e)
@@ -136,6 +137,27 @@ namespace as_webforms_sklep
 
                 calculateTotalPrice();
             }
+        }
+
+        protected void calculateBasketItemCount()
+        {
+            List<BasketItem> basketList;
+            if (Session["basket"] == null)
+            {
+                basketList = new List<BasketItem>();
+            }
+            else
+            {
+                basketList = (List<BasketItem>)Session["basket"];
+            }
+
+            int totalAmount = 0;
+            foreach (BasketItem basketItem in basketList)
+            {
+                totalAmount += basketItem.Amount;
+            }
+
+            bOrder.Enabled = totalAmount > 0;
         }
 
         protected void bOrder_Click(object sender, EventArgs e)
