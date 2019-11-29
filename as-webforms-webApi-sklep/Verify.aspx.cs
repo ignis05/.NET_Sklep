@@ -18,7 +18,7 @@ namespace as_webforms_webApi_sklep
             if (!this.IsPostBack)
             {
                 string activationCode = !string.IsNullOrEmpty(Request.QueryString["ActivationCode"]) ? Request.QueryString["ActivationCode"] : Guid.Empty.ToString();
-                ltMessage.Text = "Your account has been verified succesfully";
+                ltMessage.Text = "Twój adres email został pomyślnie zweryfikowany.<br/>Możesz teraz zamknąć tą stronę.";
                 DatabaseHandler.updateVerificationStatus(activationCode);
             }
         }

@@ -38,10 +38,10 @@ namespace as_webforms_sklep.services
                     idTrue = id.Rows[0]["id"].ToString();
                 Debug.WriteLine(idTrue);
                 Debug.WriteLine(username);
-                mm.Subject = "Account Activation";
+                mm.Subject = "Potwierdzenie adresu email";
                 string body = "Hello " + username + ",";
-                body += "<br /><br />Please click the following link to activate your account";
-                body += "<br /><a href = 'http://localhost:54291/Verify.aspx/?ActivationCode=" + idTrue + "'> Click here to activate your account. </a>";
+                body += "<br /><br />Kliknij w poniższe hiperłącze aby potwierdzić swój adres email";
+                body += "<br /><a href = 'http://localhost:54291/Verify.aspx/?ActivationCode=" + idTrue + "'> Potwierdź. </a>";
                 body += "<br /><br />Thanks";
                 mm.Body = body;
                 mm.IsBodyHtml = true;

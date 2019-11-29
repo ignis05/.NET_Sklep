@@ -4,7 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Sklep</title>
+    <style>
+        body {
+            background:rgb(237,237,237);
+        }
+    </style>
 </head>
 <body>
     <h1><asp:Literal ID="ltMessage" runat="server" /></h1>

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace as_webforms_sklep {
-    
-    
-    public partial class MainForm {
-        
+namespace as_webforms_sklep
+{
+
+
+    public partial class MainForm
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// lbToRegister control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToRegister;
-        
+
         /// <summary>
         /// lbToAdmin control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToAdmin;
-        
+
         /// <summary>
         /// lbToLogin control.
         /// </summary>
@@ -47,7 +49,16 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToLogin;
-        
+
+        /// <summary>
+        /// KatFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList KatFilter;
+
         /// <summary>
         /// tbSearch control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tbSearch;
-        
+
         /// <summary>
         /// bSearch control.
         /// </summary>
@@ -65,25 +76,16 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bSearch;
-        
-        /// <summary>
-        /// Kontrolka KatFilter.
-        /// </summary>
-        /// <remarks>
-        /// Pole generowane automatycznie.
-        /// By zmodyfikować deklaracje pola przenieś ją z pliku projektanta do pliku codebehind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList KatFilter;
 
         /// <summary>
-        /// Kontrolka lbToBasket.
+        /// lbToBasket control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToBasket;
-        
+
         /// <summary>
         /// lLoggedIn control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lLoggedIn;
-        
+
         /// <summary>
         /// bLogout control.
         /// </summary>
@@ -101,16 +103,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bLogout;
-        
-        /// <summary>
-        /// lvCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvCategories;
-        
+
         /// <summary>
         /// rProducts control.
         /// </summary>
@@ -119,7 +112,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rProducts;
-        
+
         /// <summary>
         /// lbToRegister2 control.
         /// </summary>
@@ -128,7 +121,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToRegister2;
-        
+
         /// <summary>
         /// lbToAdmin2 control.
         /// </summary>
@@ -137,7 +130,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToAdmin2;
-        
+
         /// <summary>
         /// lbToLogin2 control.
         /// </summary>
@@ -146,7 +139,7 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToLogin2;
-        
+
         /// <summary>
         /// lbToBasket2 control.
         /// </summary>
@@ -155,23 +148,5 @@ namespace as_webforms_sklep {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbToBasket2;
-        
-        /// <summary>
-        /// lbToMainPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbToMainPage;
-        
-        /// <summary>
-        /// lbToContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lbToContact;
     }
 }
