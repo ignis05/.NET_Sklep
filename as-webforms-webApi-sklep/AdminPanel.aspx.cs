@@ -92,9 +92,9 @@ namespace as_webforms_sklep
             else
             {
                 if (Convert.ToInt32(myValue) == 1)
-                    return "Demote";
+                    return "Zabierz uprawnienia administratora";
                 else if (Convert.ToInt32(myValue) == 0)
-                    return "Promote";
+                    return "Nadaj uprawnienia administratora";
                 else
                     return "";
             }
