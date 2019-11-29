@@ -109,8 +109,7 @@ namespace as_webforms_sklep
             GridViewRow gvr = ((DropDownList)sender).NamingContainer as GridViewRow;
             var list = gvr.FindControl("orderStateList") as DropDownList;
             string val = list.SelectedValue;
-            HiddenField hf1 = (HiddenField)gvr.FindControl("hiddenID");
-            string id = hf1.Value;
+            string id = gvr.Cells[0].Text;
             DatabaseHandler.updateOrder(id,val);
             gvOrders.DataSource = DatabaseHandler.selectTable("orders");
             gvOrders.DataBind();
