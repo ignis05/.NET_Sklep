@@ -15,6 +15,7 @@
 
         body {
             background: rgb(237,237,237);
+            overflow-x:hidden;
         }
         footer {
             margin-top: 5px;
@@ -119,6 +120,7 @@
             border-top: 2px solid #888;
             border-left: 2px solid #888;
             border-right: 2px solid #888;
+            padding-right:100px;
         }
 
         #menu-list {
@@ -133,13 +135,14 @@
         #menu-list li a {
             text-decoration: none;
             color: gray;
+            text-decoration:underline;
         }
 
         #user-status {
             display: flex;
             justify-content: flex-end;
-            width: 40%;
-            min-width: 650px;
+            width: 60%;
+            min-width: 450px;
         }
 
         #user-status a {
@@ -149,7 +152,7 @@
         }
 
         .cart-bt {
-            width: auto;
+            flex:0.5!important;
             padding-right: 10px;
         }
 
@@ -255,10 +258,11 @@
             height: 100%;
         }
         #bLogout{
-            width:80px;
+            flex:1;
             height:30px;
             color:gray;
-            margin-right:20px
+            margin-right:20px;
+            cursor:pointer;
         }
         #title{
             height:275px
