@@ -164,7 +164,7 @@
 							<ItemTemplate>
 								<asp:LinkButton
 									ID="btDeleteUser"
-									Text='<%# Convert.ToInt32(Eval("id")) == 0 ? "" : "Delete" %>'
+									Text='<%# Convert.ToInt32(Eval("id")) == 0 || Convert.ToInt32(Eval("id")) == -1 ? "" : "Delete" %>'
 									runat="server"
 									CommandName="DeleteUser"
 									AllowPaging="True"

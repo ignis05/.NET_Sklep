@@ -13,7 +13,8 @@ namespace as_webforms_sklep
         UNKNOWN = -1,
         USER = 0,
         ADMIN = 1,
-        ROOT = 2
+        ROOT = 2,
+        ANONYMOUS = 3
     }
 
     public static class UserHandler
