@@ -168,7 +168,15 @@ namespace as_webforms_sklep
 
         void doSearch()
         {
-            rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM product_info WHERE name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%'", tbSearch.Text));
+            if(KatFilter.SelectedValue == "null")
+            {
+                rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM product_info WHERE name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%'", tbSearch.Text));
+            }
+            else
+            {
+                rProducts.DataSource = DatabaseHandler.selectQuery(string.Format("SELECT * FROM product_info WHERE category LIKE '%{1}%' AND ( name LIKE '%{0}%' OR (SELECT name FROM product_categories WHERE id LIKE category) LIKE '%{0}%' OR description LIKE '%{0}%' OR supplier LIKE '%{0}%')", tbSearch.Text, KatFilter.SelectedValue));
+            }
+            
             rProducts.DataBind();
         }
 
