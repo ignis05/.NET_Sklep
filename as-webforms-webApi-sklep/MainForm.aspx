@@ -276,6 +276,14 @@
             color:gray;
             margin-top:3px
         }
+        .prod-buy-button{
+            margin-top:50px;
+            box-sizing:border-box;
+            padding:20px;
+            background:rgb(237,237,237);
+            color:gray;
+            cursor:pointer;
+        }
     </style>
 </head>
 <body>
